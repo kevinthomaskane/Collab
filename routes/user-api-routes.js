@@ -10,7 +10,7 @@ module.exports = function (app) {
       }
     }).then(function (data) {
       if(data){
-        res.redirect("/home");
+        res.json(data);
       }
       else {
         res.end();

@@ -38,6 +38,8 @@ $(document).ready(function () {
       password: $("#login-password").val().trim()
     };
 
-    $.post("/api/login/", userObj);
+    $.post("/api/login/", userObj).then(function () {
+      window.location.href = "/home";
+    });
   });
 });
