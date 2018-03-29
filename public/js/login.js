@@ -31,18 +31,13 @@ $(document).ready(function () {
 
   });
 
-  $("#btn-login").on("click", () => {
-    var username = $("#login-username").val().trim();
-    var password = $("#login-password").val().trim();
+  $("#btn-login").on("click", (event) => {
+    event.preventDefault();
+    var userObj = {
+      username: $("#login-username").val().trim(),
+      password: $("#login-password").val().trim()
+    };
 
-    $.get("/api/login/"+
-      username + "/" + password ).then((data) => {
-      if(data){
-        console.log(data);
-      }
-      else {
-        alert("no such user exists");
-      }
-    });
+    $.post("/api/login/", userObj);
   });
 });
