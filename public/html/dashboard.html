@@ -23,15 +23,16 @@
 
 
 <body>
-    <nav class="navbar navbar-light bg-light">
-        <form class="form-inline">
-            <input class="form-control mr-sm-2" type="board" placeholder="Search Board" aria-label="Board">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="baord">Board</button>
-        </form>
-    </nav>
-    <br>
-    <br>
-    <br>
+        <label>Search for a project:
+                <input list="browsers" name="myBrowser" /></label>
+                <datalist id="browsers">
+                  <option value="Chrome">
+                  <option value="Firefox">
+                  <option value="Internet Explorer">
+                  <option value="Opera">
+                  <option value="Safari">
+                  <option value="Microsoft Edge">
+                </datalist>
 
     <h4>Personal Board</h4>
 
@@ -39,14 +40,22 @@
     
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
-                <div class="project2">New Project</div>
+            <div id="projectTiles" class="col-sm-12">
+                
             </div>
 
         </div>
     </div>
-
-
+    <label>Choose a browser from this list:
+            <input list="projectsDrop" name="myProjects" /></label>
+            <datalist id="projectsDrop">
+              <option value="Chrome">
+              <option value="Firefox">
+              <option value="Internet Explorer">
+              <option value="Opera">
+              <option value="Safari">
+              <option value="Microsoft Edge">
+            </datalist>
 
 
 
