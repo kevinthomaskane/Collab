@@ -12,6 +12,11 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/landingpage.css">
     <link rel="stylesheet" href="../css/dashboard.css">
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../js/dash.js"></script>
 </head>
 <div class="row header">
     <div class="col-md-5"></div>
@@ -23,15 +28,11 @@
 
 
 <body>
-    <nav class="navbar navbar-light bg-light">
-        <form class="form-inline">
-            <input class="form-control mr-sm-2" type="board" placeholder="Search Board" aria-label="Board">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="baord">Board</button>
-        </form>
-    </nav>
-    <br>
-    <br>
-    <br>
+        <label>Search for a project:
+                <input list="projectsDrop" name="myProjects" /></label>
+            <datalist id="projectsDrop">
+              <option value="random">
+            </datalist>
 
     <h4>Personal Board</h4>
 
@@ -39,14 +40,12 @@
     
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
-                <div class="project2">New Project</div>
+            <div id="projectTiles" class="col-sm-12">
+                
             </div>
 
         </div>
     </div>
-
-
 
 
 
