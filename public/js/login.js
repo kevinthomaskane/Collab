@@ -27,11 +27,16 @@ $(document).ready(function () {
   });
 
 
-  $("#login").on("click", () => {
-      var returnUser = {
-          userName: $("#returnName").val().trim(),
-          password: $("#returnPass").val().trim()
+  $("#btn-login").on("click", () => {
+    console.log("here");
+    var userObj = {
+       username: $("#login-username").val().trim(),
+       password: $("#login-password").val().trim()
+     };
 
-      }
-  });
+     $.post("/api/login/", userObj).then(function () {
+       window.location.href = "/home";
+     });
+   });
+
 });
