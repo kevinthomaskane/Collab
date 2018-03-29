@@ -1,0 +1,39 @@
+
+.header{
+    background-color: black;
+    height: 100px;
+}
+
+#logo{
+    color: white;
+    font-family: 'Lobster', cursive;
+    font-size: 250%;
+    line-height: 100px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#sideNav{
+    height: 800px;
+    background-color: #f0f0f5;
+
+}
+
+ul{
+    list-style: none;
+}
+
+input{
+    border-radius: 10px;
+    
+}
+
+#chatArea{
+    height: 300px;
+    border: solid 1px black;
+    margin: 10px 0 10px 0;
+}
+
+#ProjectNameSide{
+    text-align: center;
+}

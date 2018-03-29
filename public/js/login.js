@@ -7,7 +7,7 @@ $("#submitUser").on("click", () => {
 
     var userObject = {
         name: $("#name").val().trim(),
-        userName: $("#user").val().trim(),
+        username: $("#user").val().trim(),
         password: $("#pass").val().trim()
     }
 
@@ -33,6 +33,11 @@ $("#login").on("click", () => {
     var returnUser = {
         userName: $("#returnName").val().trim(),
         password: $("#returnPass").val().trim()
-
     }
+
+    $.post("/api/login", returnUser).then((data)=>{
+        $.get("/secondPage").then((data)=>{
+            console.log(data)
+        })
+    })
 })
