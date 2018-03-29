@@ -1,4 +1,34 @@
-.project2{
+.projectButton{
+    height: 150px;
+    width: 200px;
+}
+
+.header{
+    background-color: black;
     height: 100px;
-    background-color: aquamarine;
+    margin-bottom: 20px;
+}
+
+#logo{
+    color: white;
+    font-family: 'Lobster', cursive;
+    font-size: 250%;
+    line-height: 100px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+*{
+    font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+#projectName{
+    font-size: 200%;
+    padding: 20px 0 0 0;
+    
+}
+
+#projectTiles{
+    margin-bottom: 50px;
+    margin-top: 30px;
 }

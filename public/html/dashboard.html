@@ -10,44 +10,70 @@
         crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/landingpage.css">
     <link rel="stylesheet" href="../css/dashboard.css">
-    <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
     <script type="text/javascript" src="../js/dash.js"></script>
 </head>
-<div class="row header">
-    <div class="col-md-5"></div>
-    <div class="col-md-2">
-        <a id="logo" href="login.html">Trello</a>
-    </div>
-    <div class="col-md-5"></div>
-</div>
-
 
 <body>
-        <label>Search for a project:
-                <input list="projectsDrop" name="myProjects" /></label>
-            <datalist id="projectsDrop">
-              <option value="random">
-            </datalist>
-
-    <h4>Personal Board</h4>
-
-        <button type="button" class="btn btn-primary btn-lg">Add New Project</button>
-    
+    <div class="row header">
+        <div class="col-md-5"></div>
+        <div class="col-md-2">
+            <a id="logo" href="login.html">Trello</a>
+        </div>
+        <div class="col-md-5"></div>
+    </div>
     <div class="container">
+
+
         <div class="row">
-            <div id="projectTiles" class="col-sm-12">
-                
+            <div class="col-md-6">
+                <span id="projectName">Your Projects</span>
+
+            </div>
+            <div class="col-md-6">
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+        <div class="row">
+            <div id="projectTiles" class="col-sm-12"></div>
+
+        </div>
+        
+        <div class="row">
+            <div class="col-md-5">
+                <label>Search for a project:
+                    <input list="projectsDrop" name="myProjects" />
+                </label>
+                <datalist id="projectsDrop" name="myProjects">
+                    <option value="random">
+                </datalist>
+            </div>
+            <div class="col-md-7">
+
             </div>
 
         </div>
+        <div class="row" style="margin-top: 20px">
+                <div class="col-md-5">
+                    <button type="button" class="btn btn-primary btn-lg">Add a New Project  <i class="fas fa-plus-circle"></i></button>
+                </div>
+            </div>
+
+
     </div>
-
-
 
 </body>
 
