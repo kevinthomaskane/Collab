@@ -13,15 +13,22 @@
     text-align: center;
 }
 
+*{
+    font-family: 'Ubuntu Condensed', sans-serif;
+}
+
 #sideNav{
     height: 800px;
     background-color: #f0f0f5;
 
 }
 
-ul{
-    list-style: none;
+.btn-success{
+    border: none;  
+    margin-bottom: 10px; 
 }
+
+
 
 input{
     border-radius: 10px;
@@ -36,4 +43,7 @@ input{
 
 #ProjectNameSide{
     text-align: center;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
