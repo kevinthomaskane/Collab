@@ -2,12 +2,14 @@ var db = require("../models");
 
 module.exports = function (app) {
 
-  app.get("/api/login", function (req, res) {
+  app.get("/api/login/:username/:password", function (req, res) {
     db.User.findOne({
       where:{
-        username: req.body.username,
-        password: req.body.password
+        username: req.params.username,
+        password: req.params.password
       }
+    }).then(function (data) {
+      res.json(data);
     });
   });
 

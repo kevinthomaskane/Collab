@@ -27,11 +27,17 @@ $(document).ready(function () {
   });
 
 
-  $("#login").on("click", () => {
-      var returnUser = {
-          userName: $("#returnName").val().trim(),
-          password: $("#returnPass").val().trim()
-
+  $("#btn-login").on("click", () => {
+    var username = $("#login-username").val().trim();
+    var password = $("#login-password").val().trim();
+    
+    $.get("/api/login/"+ username + "/" + password ).then((data) => {
+      if(data){
+        console.log(data);
       }
+      else {
+        alert("no such user exists");
+      }
+    });
   });
 });
