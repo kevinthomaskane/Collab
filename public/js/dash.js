@@ -17,9 +17,7 @@ $(document).ready(function () {
             $("#projectTiles").append(`
             <button class="projectButton">${data.Projects[i].name}</button>
             `)
-            $("#projectsDrop").append(`
-            <options value="${data.Projects[i].name}" id="${data.Projects[i].name}"/>
-            `)
+            $("#projectsDrop").append("<option value='" + data.Projects[i].name + "'>")
         }
     })
   
