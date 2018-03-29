@@ -1,21 +1,24 @@
 
-var userName = JSON.parse(localStorage.getItem("username"))
-var userId = JSON.parse(localStorage.getItem("id"))
-
+var userName = localStorage.getItem("username")
+var userId = localStorage.getItem("id")
+console.log(userId.toString());
 $(document).ready(function () {
 
     var object ={
         username: userName,
-        userId: userId
+        userId: userId.toString()
     }
+
+    console.log(object)
     
-    $.get("/api/userProjects", object).then((data)=>{
-        for (let i=0;  i<data.length; i++){
+    $.post("/api/userProjects", object).then((data)=>{
+        console.log(data)
+        for (let i=0;  i<data.Projects.length; i++){
             $("#projectTiles").append(`
-            <button class="projectButton">${data[i].projectName}</button>
+            <button class="projectButton">${data.Projects[i].name}</button>
             `)
             $("#projectsDrop").append(`
-            <options value="${data[i].projectName}" id="${data[i].projectName}">
+            <options value="${data.Projects[i].name}" id="${data.Projects[i].name}"/>
             `)
         }
     })

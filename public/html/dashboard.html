@@ -12,6 +12,11 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/landingpage.css">
     <link rel="stylesheet" href="../css/dashboard.css">
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../js/dash.js"></script>
 </head>
 <div class="row header">
     <div class="col-md-5"></div>
@@ -24,15 +29,10 @@
 
 <body>
         <label>Search for a project:
-                <input list="browsers" name="myBrowser" /></label>
-                <datalist id="browsers">
-                  <option value="Chrome">
-                  <option value="Firefox">
-                  <option value="Internet Explorer">
-                  <option value="Opera">
-                  <option value="Safari">
-                  <option value="Microsoft Edge">
-                </datalist>
+                <input list="projectsDrop" name="myProjects" /></label>
+            <datalist id="projectsDrop">
+              <option value="random">
+            </datalist>
 
     <h4>Personal Board</h4>
 
@@ -46,16 +46,6 @@
 
         </div>
     </div>
-    <label>Choose a browser from this list:
-            <input list="projectsDrop" name="myProjects" /></label>
-            <datalist id="projectsDrop">
-              <option value="Chrome">
-              <option value="Firefox">
-              <option value="Internet Explorer">
-              <option value="Opera">
-              <option value="Safari">
-              <option value="Microsoft Edge">
-            </datalist>
 
 
 
