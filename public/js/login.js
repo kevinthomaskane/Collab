@@ -10,13 +10,11 @@ $(document).ready(function () {
           username: $("#user").val().trim(),
           password: $("#pass").val().trim()
       }
-
       if (userObject.name.length > 0 && userObject.username.length > 0 && userObject.password.length > 0) {
           name = true;
           user = true;
           pass = true;
       }
-
       if (name && user && pass) {
           $.post("/api/newUser", userObject).then((data) => {
               if (data) {
