@@ -1,0 +1,15 @@
+.header{
+    background-color: black;
+    height: 100px;
+ }
+ 
+ #logo{
+    color: white;
+    font-family: 'Lobster', cursive;
+    font-size: 250%;
+    line-height: 100px;
+    vertical-align: middle;
+    text-align: center;
+ }
+
+ 

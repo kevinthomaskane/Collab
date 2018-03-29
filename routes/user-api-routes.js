@@ -3,11 +3,18 @@ var db = require("../models");
 
 module.exports = function (app) {
 
-  app.get("/api/login", function (req, res) {
+  app.post("/api/login", function (req, res) {
     db.User.findOne({
       where:{
         username: req.body.username,
         password: req.body.password
+      }
+    }).then(function (data) {
+      if(data){
+        res.json(data);
+      }
+      else {
+        res.end();
       }
     });
   });
@@ -19,4 +26,3 @@ module.exports = function (app) {
   });
 
 };
- 
