@@ -34,8 +34,8 @@ $(document).ready(function () {
     $.get("/api/dones").then((data) => {
         $("#done").append(`
                 <li>
-                     <button id="${response.id}" type="button" class="btn btn-dark">${response.content}
-                         <a href="" id="${response.id}" class="dones delete">
+                     <button id="${data.id}" type="button" class="btn btn-dark">${data.content}
+                         <a href="" id="${data.id}" class="dones delete">
                             <i class="far fa-times-circle"></i>
                         </a>
                     </button>
