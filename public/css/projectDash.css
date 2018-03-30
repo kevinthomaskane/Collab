@@ -64,7 +64,7 @@ li button{
     text-align: center;
 }
 
-.btn-success{
+#sideNav .btn-success{
     border: none;  
     margin-bottom: 10px; 
 }

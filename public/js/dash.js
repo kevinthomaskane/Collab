@@ -27,7 +27,17 @@ $(document).ready(function () {
             id: id
         }
         $.post("/api/userProjects", object).then((data) => {
-            window.location.href = "/home";
+            window.location.href = "/projectDash";
+        })
+    })
+
+    $(document).on("click", ".projectButton", ()=>{
+        var id = $(this).attr("id")
+        var object = {
+            id: id
+        }
+        $.post("/api/userProjects", object).then((data)=>{
+            window.location.href ="/projectDash"
         })
     })
 
