@@ -10,4 +10,8 @@ module.exports = app => {
     res.sendFile(path.join(__dirname, "../public/html/dashboard.html"));
   });
 
+  app.get("/projectDash", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/html/projectDash.html"));
+  });
+
 }
