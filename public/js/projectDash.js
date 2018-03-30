@@ -1,6 +1,7 @@
+var projectId = localStorage.getItem("project_id");
 $(document).ready(function() {
 
-  $.get("/api/todos").then((data) => {
+  $.get("/api/todos/" + projectId).then((data) => {
     $("#need").append(`
         <li>
          <button id="${data.id}" type="button" class="btn btn-primary">
@@ -16,7 +17,7 @@ $(document).ready(function() {
         `)
   });
 
-  $.get("/api/doings/1").then(function (data) {
+  $.get("/api/doings/"+ projectId).then(function (data) {
     for (var i = 0; i < data.length; i++) {
       $("#doing").append(`
           <li>
@@ -30,12 +31,12 @@ $(document).ready(function() {
             </a>
            </button>
           </li>
-      `)
+      `);
     }
 
   });
 
-  $.get("/api/dones").then((data) => {
+  $.get("/api/dones/" + projectId).then((data) => {
     $("#done").append(`
         <li>
           <button id="${data.id}" type="button" class="btn btn-dark">

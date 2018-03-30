@@ -1,5 +1,5 @@
-var userName = localStorage.getItem("username")
-var userId = localStorage.getItem("id")
+var userName = localStorage.getItem("username");
+var userId = localStorage.getItem("id");
 
 $(document).ready(function() {
 
