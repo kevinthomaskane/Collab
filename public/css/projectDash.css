@@ -18,7 +18,10 @@
 }
 
 #sideNav{
-    height: 800px;
+    position: absolute;
+    top: 100px;
+    left: 75%;
+    bottom: 0;
     background-color: #f0f0f5;
 
 }
@@ -33,12 +36,16 @@ li{
 
 .fa-check-circle{
     padding-left: 5%;
+    padding-right: 5%;
+    font-size: 20px;
     color: white;
 }
 
 .fa-times-circle{
 color: white;
 padding-left: 3px;
+font-size: 20px;
+
 }
 
 ul{
@@ -80,6 +87,8 @@ input{
     height: 300px;
     border: solid 1px black;
     margin: 10px 0 10px 0;
+    background-color: white;
+    overflow: auto;
 }
 
 #ProjectNameSide{

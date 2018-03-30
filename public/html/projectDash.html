@@ -23,15 +23,51 @@
 
 <body>
 
-  <div class="row header">
-    <div class="col-md-5"></div>
-    <div class="col-md-2">
-      <a id="logo" href="login.html">Trello</a>
+    <div class="row header">
+        <div class="col-md-5"></div>
+        <div class="col-md-2">
+            <a id="logo" href="html/dashboard.html">Trello</a>
+        </div>
+        <div class="col-md-5"></div>
     </div>
     <div class="col-md-5"></div>
   </div>
 
-  <div class="row">
+    <div class="row">
+
+        <div class="col-md-9">
+            <div class="container">
+                <div class="row">
+                    <div id="projectName" class="col-md-12">
+                        Your Project Name
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+
+                        <div class="itemsContainer">
+                            <span class="itemHeader">To-Do</span>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <button class="add-need btn btn-outline-secondary" type="button">+</button>
+                                </div>
+                                <input type="text" class="need-item form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                            </div>
+                            <ul id="need">
+                                <li>
+                                    <button type="button" class="btn btn-primary">Need to do this
+                                        <a href="" class="need">
+                                            <i class="far fa-check-circle"></i>
+                                        </a>
+                                        <a href="" class="delete">
+                                            <i class="far fa-times-circle"></i>
+                                        </a>
+                                    </button>
+                                </li>
+
+
+                            </ul>
+                        </div>
 
     <div class="col-md-9">
       <div class="container">
@@ -41,14 +77,52 @@
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-4">
+                        <div class="itemsContainer">
+                            <span class="itemHeader">Doing</span>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <button class="add-doing btn btn-outline-secondary" type="button">+</button>
+                                </div>
+                                <input type="text" class="form-control doing-item" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                            </div>
+                            <ul id="doing">
+                                <li>
+                                    <button type="button" class="btn btn-success">doing this right now
+                                        <a href="" class="doing">
+                                            <i class="far fa-check-circle"></i>
+                                        </a>
+                                        <a href="" class="delete">
+                                            <i class="far fa-times-circle"></i>
+                                        </a>
+                                    </button>
+                                </li>
 
-            <div class="itemsContainer">
-              <span class="itemHeader">To-Do</span>
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <button class="add-need btn btn-outline-secondary" type="button">+</button>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+
+                        <div class="itemsContainer">
+                            <span class="itemHeader">Done</span>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <button class="add-done btn btn-outline-secondary" type="button">+</button>
+                                </div>
+                                <input type="text" class="done-item form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                            </div>
+                            <ul id="done">
+                                <li>
+                                    <button type="button" class="btn btn-dark">done
+
+                                        <a href="" class="delete">
+                                            <i class="far fa-times-circle"></i>
+                                        </a>
+                                    </button>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 <input type="text" class="need-item form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
               </div>
@@ -89,7 +163,38 @@
                 </li>
               </ul>
             </div>
-          </div>
+            <div id="chatArea">
+                <ul id="chatList" style="text-align: center">Group Chat
+                    <li style="text-align: left">hello</li>
+                    <li style="text-align: left">hello</li>
+
+                    <li style="text-align: left">hello</li>
+
+                    <li style="text-align: left">hello</li>
+                    <li style="text-align: left">hello</li>
+                    <li style="text-align: left">hello</li>
+                    <li style="text-align: left">hello</li>
+                    <li style="text-align: left">hello</li>
+                    <li style="text-align: left">hello</li>
+                    <li style="text-align: left">hello</li>
+                    <li style="text-align: left">hello</li>
+                    <li style="text-align: left">hello</li>
+                    <li style="text-align: left">hello</li>
+                    <li style="text-align: left">hello</li>
+                    <li style="text-align: left">hello</li>
+
+                </ul>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-secondary" type="button">
+                            <i class="fas fa-location-arrow"></i>
+                        </button>
+                    </div>
+                    <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                </div>
+
 
           <div class="col-md-4">
             <div class="itemsContainer">
