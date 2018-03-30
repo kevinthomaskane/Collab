@@ -14,4 +14,4 @@ module.exports = app => {
     res.sendFile(path.join(__dirname, "../public/html/projectDash.html"));
   });
 
-}
+};

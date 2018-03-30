@@ -1,6 +1,6 @@
 var userName = localStorage.getItem("username")
 var userId = localStorage.getItem("id")
-console.log(userId.toString());
+
 $(document).ready(function() {
 
   var object = {
@@ -14,7 +14,7 @@ $(document).ready(function() {
       $("#projectTiles").append(`
             <button type="button"
             class="btn btn-primary projectButton"
-            id="${data.Projects[i].id}">
+            data-id="${data.Projects[i].id}">
             ${data.Projects[i].name}</button>
             `)
       $("#projectsDrop").append("<option id='" +
@@ -46,14 +46,16 @@ $(document).ready(function() {
     });
   });
 
-  $(document).on("click", ".projectButton", () => {
-    var id = $(this).attr("id")
+  $("#projectTiles").on("click", "button.projectButton", () => {
+    var id = $(this).attr("data-id");
     var object = {
       id: id
     }
-    $.post("/api/currProject", object).then((data) => {
-      window.location.href = "/projectDash"
-    });
+    console.log($(this));
+    localStorage.setItem("project_id", id);
+    // $.post("/api/currProject", object).then((data) => {
+    //   window.location.href = "/projectDash"
+    // });
   });
 
 });
