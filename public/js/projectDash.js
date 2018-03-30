@@ -1,15 +1,18 @@
 
+var project_id = localStorage.getItem("project_id")
+
 $(document).ready(function () {
 
-    $.get("/api/todos").then((data) => {
+
+    $.get("/api/todos/" + project_id).then((data) => {
         for (let i = 0; i< data.length; i++){
             $("#need").append(`
             <li>
-                 <button id="${data[i].id}" type="button" class="btn btn-primary">${data[i].content}
-                     <a href="" id="${data[i].id}" class="need">
+                 <button data-id="${data[i].id}" type="button" class="btn btn-primary">${data[i].content}
+                     <a href="" data-id="${data[i].id}" class="need">
                         <i class="far fa-check-circle"></i>
                     </a>
-                     <a href="" id="${data[i].id}" class="todos delete">
+                     <a href="" data-id="${data[i].id}" class="todos delete">
                         <i class="far fa-times-circle"></i>
                     </a>
                 </button>
@@ -18,15 +21,15 @@ $(document).ready(function () {
         } 
     })
 
-    $.get("/api/doings").then((data) => {
+    $.get("/api/doings" + project_id).then((data) => {
         for (let i= 0; i< data.length; i++){
             $("#doing").append(`
             <li>
-                <button id="${data[i].id}"type="button" class="btn btn-success">${data[i].content}
-                    <a href="" id="${data[i].id}" class="doing">
+                <button data-id="${data[i].id}"type="button" class="btn btn-success">${data[i].content}
+                    <a href="" data-id="${data[i].id}" class="doing">
                             <i class="far fa-check-circle"></i>
                     </a>
-                    <a href="" id="${data[i].id}" class="doings delete">
+                    <a href="" data-id="${data[i].id}" class="doings delete">
                          <i class="far fa-times-circle"></i>
                     </a>
                 </button>
@@ -36,12 +39,12 @@ $(document).ready(function () {
         
     })
 
-    $.get("/api/dones").then((data) => {
+    $.get("/api/dones" + project_id).then((data) => {
         for (let i = 0; i < data.length; i++){
             $("#done").append(`
             <li>
-                 <button id="${data[i].id}" type="button" class="btn btn-dark">${data[i].content}
-                     <a href="" id="${data[i].id}" class="dones delete">
+                 <button data-id="${data[i].id}" type="button" class="btn btn-dark">${data[i].content}
+                     <a href="" data-id="${data[i].id}" class="dones delete">
                         <i class="far fa-times-circle"></i>
                     </a>
                 </button>
@@ -62,11 +65,11 @@ $(document).ready(function () {
             for (let i = 0; i < data.length; i++){
                 $("#need").prepend(`
                 <li>
-                     <button id="${data[i].id}" type="button" class="btn btn-primary">${data[i].content}
-                         <a href="" id="${data[i].id}" class="need">
+                     <button data-id="${data[i].id}" type="button" class="btn btn-primary">${data[i].content}
+                         <a href="" data-id="${data[i].id}" class="need">
                             <i class="far fa-check-circle"></i>
                         </a>
-                         <a href="" id="${data[i].id}" class="todos delete">
+                         <a href="" data-id="${data[i].id}" class="todos delete">
                             <i class="far fa-times-circle"></i>
                         </a>
                     </button>
@@ -96,11 +99,11 @@ $(document).ready(function () {
                 for (let i = 0; i < response.length; i++){
                     $("#doing").prepend(`
                     <li>
-                         <button id="${response[i].id}"type="button" class="btn btn-success">${response[i].content}
-                             <a href="" id="${response[i].id}" class="doing">
+                         <button data-id="${response[i].id}"type="button" class="btn btn-success">${response[i].content}
+                             <a href="" data-id="${response[i].id}" class="doing">
                                 <i class="far fa-check-circle"></i>
                             </a>
-                             <a href="" id="${response[i].id}" class="doings delete">
+                             <a href="" data-id="${response[i].id}" class="doings delete">
                                 <i class="far fa-times-circle"></i>
                             </a>
                         </button>
@@ -129,8 +132,8 @@ $(document).ready(function () {
                 for (let i = 0; i < response.length; i++){
                     $("#done").prepend(`
                     <li>
-                         <button id="${response[i].id}" type="button" class="btn btn-dark">${response[i].content}
-                             <a href="" id="${response[i].id}" class="dones delete">
+                         <button data-id="${response[i].id}" type="button" class="btn btn-dark">${response[i].content}
+                             <a href="" data-id="${response[i].id}" class="dones delete">
                                 <i class="far fa-times-circle"></i>
                             </a>
                         </button>
