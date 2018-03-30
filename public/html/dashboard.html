@@ -21,60 +21,48 @@
 </head>
 
 <body>
-    <div class="row header">
-        <div class="col-md-5"></div>
-        <div class="col-md-2">
-            <a id="logo" href="login.html">Trello</a>
+  <div class="row header">
+      <div class="col-md-5"></div>
+      <div class="col-md-2">
+          <a id="logo" href="login.html">Trello</a>
+      </div>
+      <div class="col-md-5"></div>
+  </div>
+  <div class="container">
+    <div class="row">
+        <div class="col-md-6">
+          <span id="projectName">Your Projects</span>
         </div>
-        <div class="col-md-5"></div>
-    </div>
-    <div class="container">
-
-
-        <div class="row">
-            <div class="col-md-6">
-                <span id="projectName">Your Projects</span>
-
-            </div>
-            <div class="col-md-6">
-
-            </div>
-
+        <div class="col-md-6">
 
         </div>
-
-
-
-
-
-        <div class="row">
-            <div id="projectTiles" class="col-sm-12"></div>
-
-        </div>
-
-        <div class="row">
-            <div class="col-md-5">
-                <label>Search for a project:
-                    <input list="projectsDrop" name="myProjects" />
-                </label>
-                <datalist id="projectsDrop" name="myProjects">
-                    <option value="random">
-                </datalist>
-            </div>
-            <div class="col-md-7">
-
-            </div>
-
-        </div>
-        <div class="row" style="margin-top: 20px">
-                <div class="col-md-5">
-                    <button id="addProj" type="button" class="btn btn-primary btn-lg">Add a New Project  <i class="fas fa-plus-circle"></i></button>
-                </div>
-            </div>
-
-
     </div>
 
+      <div class="row">
+        <div id="projectTiles" class="col-sm-12"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-5">
+            <label>Search for a project:
+                <input list="projectsDrop" name="myProjects" />
+            </label>
+            <datalist id="projectsDrop" name="myProjects">
+                <option value="random">
+            </datalist>
+        </div>
+        <div class="col-md-7">
+
+        </div>
+      </div>
+      <div class="row" style="margin-top: 20px">
+        <div class="col-md-5">
+            <button id="addProj" type="button" class="btn btn-primary btn-lg">
+              Add a New Project  <i class="fas fa-plus-circle"></i>
+            </button>
+        </div>
+      </div>
+  </div>
 </body>
 
 </html>
