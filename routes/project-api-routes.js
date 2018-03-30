@@ -18,9 +18,12 @@ module.exports = function (app) {
   });
 
   app.post("/api/addProject", function (req, res) {
-    db.Project.create(req.body)
+    db.Project.create({
+      name: req.body.name,
+    })
     .then(function (project) {
-      project.addDone();
+      console.log(db.Project.prototype);
+      project.setUsers([req.body.userId]);
       res.json(project);
     });
   });

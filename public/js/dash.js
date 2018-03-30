@@ -25,7 +25,8 @@ $(document).ready(function () {
       console.log("here");
 
       var projObj = {
-        name: "test"
+        name: "test",
+        userId: userId
       };
 
       $.post("/api/addProject", projObj).then((data) => {
