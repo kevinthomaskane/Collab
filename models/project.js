@@ -12,37 +12,28 @@ module.exports = function (sequelize, DataTypes) {
       through: "UserProject",
       foreignKey: "projectId"
     });
+    models.Project.hasMany(models.ToDo, {
+      foreignKey: {
+        onDelete: "CASCADE",
+        name: 'project_id',
+        allowNull: false
+      }
+    });
+    models.Project.hasMany(models.Doing, {
+      foreignKey: {
+        onDelete: "CASCADE",
+        name: 'project_id',
+        allowNull: false
+      }
+    });
+    models.Project.hasMany(models.Done, {
+      foreignKey: {
+        onDelete: "CASCADE",
+        name: 'project_id',
+        allowNull: false
+      }
+    });
   };
-
-  // Project.associate = function(models) {
-  //   models.Project.hasMany(models.ToDo, {
-  //     foreignKey: {
-  //       onDelete: "CASCADE",
-  //       name: 'project_id',
-  //       allowNull: false
-  //     }
-  //   });
-  // };
-  //
-  // Project.associate = function(models) {
-  //   models.Project.hasMany(models.Doing, {
-  //     foreignKey: {
-  //       onDelete: "CASCADE",
-  //       name: 'project_id',
-  //       allowNull: false
-  //     }
-  //   });
-  // };
-  //
-  // Project.associate = function(models) {
-  //   models.Project.hasMany(models.Done, {
-  //     foreignKey: {
-  //       onDelete: "CASCADE",
-  //       name: 'project_id',
-  //       allowNull: false
-  //     }
-  //   });
-  // };
 
   return Project;
 };
