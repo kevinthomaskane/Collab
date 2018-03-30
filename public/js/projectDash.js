@@ -62,11 +62,11 @@ $(document).ready(function () {
             for (let i = 0; i < data.length; i++){
                 $("#need").prepend(`
                 <li>
-                     <button id="${data.id}" type="button" class="btn btn-primary">${data.content}
-                         <a href="" id="${data.id}" class="need">
+                     <button id="${data[i].id}" type="button" class="btn btn-primary">${data[i].content}
+                         <a href="" id="${data[i].id}" class="need">
                             <i class="far fa-check-circle"></i>
                         </a>
-                         <a href="" id="${data.id}" class="todos delete">
+                         <a href="" id="${data[i].id}" class="todos delete">
                             <i class="far fa-times-circle"></i>
                         </a>
                     </button>
@@ -78,6 +78,8 @@ $(document).ready(function () {
 
     $(document).on("click", ".need", function (event) {
         event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
         var text = $(this).parent().text();
         var id = $(this).attr("id")
         var todo = {
@@ -94,11 +96,11 @@ $(document).ready(function () {
                 for (let i = 0; i < response.length; i++){
                     $("#doing").prepend(`
                     <li>
-                         <button id="${response.id}"type="button" class="btn btn-success">${response.content}
-                             <a href="" id="${response.id}" class="doing">
+                         <button id="${response[i].id}"type="button" class="btn btn-success">${response[i].content}
+                             <a href="" id="${response[i].id}" class="doing">
                                 <i class="far fa-check-circle"></i>
                             </a>
-                             <a href="" id="${response.id}" class="doings delete">
+                             <a href="" id="${response[i].id}" class="doings delete">
                                 <i class="far fa-times-circle"></i>
                             </a>
                         </button>
@@ -127,8 +129,8 @@ $(document).ready(function () {
                 for (let i = 0; i < response.length; i++){
                     $("#done").prepend(`
                     <li>
-                         <button id="${response.id}" type="button" class="btn btn-dark">${response.content}
-                             <a href="" id="${response.id}" class="dones delete">
+                         <button id="${response[i].id}" type="button" class="btn btn-dark">${response[i].content}
+                             <a href="" id="${response[i].id}" class="dones delete">
                                 <i class="far fa-times-circle"></i>
                             </a>
                         </button>
@@ -151,12 +153,7 @@ $(document).ready(function () {
         }).then((data) => {
             console.log(data)
         });
-
     })
-
-
-    
-
 
 
 })

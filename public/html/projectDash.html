@@ -17,7 +17,7 @@
 
 <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 <!-- Jquery -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
 <script type="text/javascript" src="../js/projectDash.js"></script>
 <!-- Bootstrap JS -->
@@ -29,7 +29,7 @@
     <div class="row header">
         <div class="col-md-5"></div>
         <div class="col-md-2">
-            <a id="logo" href="login.html">Trello</a>
+            <a id="logo" href="html/dashboard.html">Trello</a>
         </div>
         <div class="col-md-5"></div>
     </div>
@@ -65,8 +65,8 @@
                                         </a>
                                     </button>
                                 </li>
-                                
-                                
+
+
                             </ul>
                         </div>
 
@@ -76,24 +76,24 @@
                         <div class="itemsContainer">
                             <span class="itemHeader">Doing</span>
                             <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <button class="add-doing btn btn-outline-secondary" type="button">+</button>
-                                    </div>
-                                    <input type="text" class="form-control doing-item" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                                <div class="input-group-prepend">
+                                    <button class="add-doing btn btn-outline-secondary" type="button">+</button>
                                 </div>
-                                <ul id="doing">
-                                    <li>
-                                        <button type="button" class="btn btn-success">doing this right now
-                                            <a href="" class="doing">
-                                                <i class="far fa-check-circle"></i>
-                                            </a>
-                                            <a href="" class="delete">
-                                                <i class="far fa-times-circle"></i>
-                                            </a>
-                                        </button>
-                                    </li>
-                                   
-                                </ul>
+                                <input type="text" class="form-control doing-item" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                            </div>
+                            <ul id="doing">
+                                <li>
+                                    <button type="button" class="btn btn-success">doing this right now
+                                        <a href="" class="doing">
+                                            <i class="far fa-check-circle"></i>
+                                        </a>
+                                        <a href="" class="delete">
+                                            <i class="far fa-times-circle"></i>
+                                        </a>
+                                    </button>
+                                </li>
+
+                            </ul>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -101,22 +101,22 @@
                         <div class="itemsContainer">
                             <span class="itemHeader">Done</span>
                             <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <button class="add-done btn btn-outline-secondary" type="button">+</button>
-                                    </div>
-                                    <input type="text" class="done-item form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                                <div class="input-group-prepend">
+                                    <button class="add-done btn btn-outline-secondary" type="button">+</button>
                                 </div>
-                                <ul id="done">
-                                    <li>
-                                        <button type="button" class="btn btn-dark">done
-                                            
-                                            <a href="" class="delete">
-                                                <i class="far fa-times-circle"></i>
-                                            </a>
-                                        </button>
-                                    </li>
-                                    
-                                </ul>
+                                <input type="text" class="done-item form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                            </div>
+                            <ul id="done">
+                                <li>
+                                    <button type="button" class="btn btn-dark">done
+
+                                        <a href="" class="delete">
+                                            <i class="far fa-times-circle"></i>
+                                        </a>
+                                    </button>
+                                </li>
+
+                            </ul>
                         </div>
                     </div>
                 </div>
