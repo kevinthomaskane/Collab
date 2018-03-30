@@ -13,12 +13,13 @@
 <link rel="stylesheet" href="../css/projectDash.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1"
     crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet">
 
 <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 <!-- Jquery -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
+<script type="text/javascript" src="../js/projectDash.js"></script>
 <!-- Bootstrap JS -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
@@ -32,44 +33,100 @@
         </div>
         <div class="col-md-5"></div>
     </div>
-    
+
     <div class="row">
-        
+
         <div class="col-md-9">
             <div class="container">
-            <div class="row">
-                <div id="projectName" class="col-md-12">
-                    Your Project Name
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    
-                    <div class="itemsContainer"><span class="itemHeader">To-Do</span>
-                        <ul>
-                           <li> <button type="button" class="btn btn-primary">Need to do this<a href=""><i class="far fa-check-circle"></i></a><a href=""><i class="far fa-times-circle"></i></a></button></li>
-                           <li> <button type="button" class="btn btn-primary">Need to this too</button></li>
-                           <li> <button type="button" class="btn btn-primary">Primary</button></li>
-                           <li> <button type="button" class="btn btn-primary">Primary</button></li>
-                        </ul>
+                <div class="row">
+                    <div id="projectName" class="col-md-12">
+                        Your Project Name
                     </div>
-
                 </div>
-                <div class="col-md-4">
-                        
-                        <div class="itemsContainer"><span class="itemHeader">Doing</span></div>
+                <div class="row">
+                    <div class="col-md-4">
+
+                        <div class="itemsContainer">
+                            <span class="itemHeader">To-Do</span>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <button class="add-need btn btn-outline-secondary" type="button">+</button>
+                                </div>
+                                <input type="text" class="need-item form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                            </div>
+                            <ul id="need">
+                                <li>
+                                    <button type="button" class="btn btn-primary">Need to do this
+                                        <a href="" class="need">
+                                            <i class="far fa-check-circle"></i>
+                                        </a>
+                                        <a href="" class="delete">
+                                            <i class="far fa-times-circle"></i>
+                                        </a>
+                                    </button>
+                                </li>
+                                
+                                
+                            </ul>
+                        </div>
+
                     </div>
                     <div class="col-md-4">
-                           
-                            <div class="itemsContainer"><span class="itemHeader">Done</span></div>
+
+                        <div class="itemsContainer">
+                            <span class="itemHeader">Doing</span>
+                            <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <button class="add-doing btn btn-outline-secondary" type="button">+</button>
+                                    </div>
+                                    <input type="text" class="form-control doing-item" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                                </div>
+                                <ul id="doing">
+                                    <li>
+                                        <button type="button" class="btn btn-success">doing this right now
+                                            <a href="" class="doing">
+                                                <i class="far fa-check-circle"></i>
+                                            </a>
+                                            <a href="" class="delete">
+                                                <i class="far fa-times-circle"></i>
+                                            </a>
+                                        </button>
+                                    </li>
+                                   
+                                </ul>
                         </div>
+                    </div>
+                    <div class="col-md-4">
+
+                        <div class="itemsContainer">
+                            <span class="itemHeader">Done</span>
+                            <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <button class="add-done btn btn-outline-secondary" type="button">+</button>
+                                    </div>
+                                    <input type="text" class="done-item form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                                </div>
+                                <ul id="done">
+                                    <li>
+                                        <button type="button" class="btn btn-dark">done
+                                            
+                                            <a href="" class="delete">
+                                                <i class="far fa-times-circle"></i>
+                                            </a>
+                                        </button>
+                                    </li>
+                                    
+                                </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
         </div>
         <div class="col-md-3" id="sideNav">
             <h3 id="ProjectNameSide">Your Team Members</h3>
             <p>Current contributors</p>
-            <div id="contributors"><button type="button" class="btn btn-success">Kevin</button>
+            <div id="contributors">
+                <button type="button" class="btn btn-success">Kevin</button>
                 <button type="button" class="btn btn-success">Gus</button>
                 <button type="button" class="btn btn-success">Bijan</button>
                 <button type="button" class="btn btn-success">Gus</button>
@@ -77,24 +134,27 @@
                 <button type="button" class="btn btn-success">Gus</button>
                 <button type="button" class="btn btn-success">Bijan</button>
                 <button type="button" class="btn btn-success">Ed</button>
-                <button type="button" class="btn btn-success">Gus</button></div>
+                <button type="button" class="btn btn-success">Gus</button>
+            </div>
             <ul>Add collaborators to your project</ul>
             <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <button class="btn btn-outline-secondary" type="button">@User</button>
-                    </div>
-                    <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
-                  </div>
+                <div class="input-group-prepend">
+                    <button class="btn btn-outline-secondary" type="button">@User</button>
+                </div>
+                <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+            </div>
             <div id="chatArea"></div>
             <div class="input-group mb-3">
-                    <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                              <button class="btn btn-outline-secondary" type="button"><i class="fas fa-location-arrow"></i></button>
-                            </div>
-                            <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
-                          </div>
-                
-                
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-secondary" type="button">
+                            <i class="fas fa-location-arrow"></i>
+                        </button>
+                    </div>
+                    <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                </div>
+
+
             </div>
         </div>
 
