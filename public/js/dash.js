@@ -49,13 +49,13 @@ $(document).ready(function() {
   $("#projectTiles").on("click", "button.projectButton", () => {
     var id = $(this).attr("data-id");
     var object = {
-      id: id
+      id: "1"
     }
     console.log($(this));
-    localStorage.setItem("project_id", id);
-    // $.post("/api/currProject", object).then((data) => {
-    //   window.location.href = "/projectDash"
-    // });
+    localStorage.setItem("project_id", "1");
+    $.post("/api/currProject", object).then((data) => {
+      window.location.href = "/projectDash"
+    });
   });
 
 });
