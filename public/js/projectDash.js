@@ -2,45 +2,53 @@
 $(document).ready(function () {
 
     $.get("/api/todos").then((data) => {
-        $("#need").append(`
+        for (let i = 0; i< data.length; i++){
+            $("#need").append(`
             <li>
-                 <button id="${data.id}" type="button" class="btn btn-primary">${data.content}
-                     <a href="" id="${data.id}" class="need">
+                 <button id="${data[i].id}" type="button" class="btn btn-primary">${data[i].content}
+                     <a href="" id="${data[i].id}" class="need">
                         <i class="far fa-check-circle"></i>
                     </a>
-                     <a href="" id="${data.id}" class="todos delete">
+                     <a href="" id="${data[i].id}" class="todos delete">
                         <i class="far fa-times-circle"></i>
                     </a>
                 </button>
              </li>
             `)
+        } 
     })
 
     $.get("/api/doings").then((data) => {
-        $("#doing").append(`
+        for (let i= 0; i< data.length; i++){
+            $("#doing").append(`
             <li>
-                <button id="${data.id}"type="button" class="btn btn-success">${data.content}
-                    <a href="" id="${data.id}" class="doing">
+                <button id="${data[i].id}"type="button" class="btn btn-success">${data[i].content}
+                    <a href="" id="${data[i].id}" class="doing">
                             <i class="far fa-check-circle"></i>
                     </a>
-                    <a href="" id="${data.id}" class="doings delete">
+                    <a href="" id="${data[i].id}" class="doings delete">
                          <i class="far fa-times-circle"></i>
                     </a>
                 </button>
-        </li>
+            </li>
         `)
+        }
+        
     })
 
     $.get("/api/dones").then((data) => {
-        $("#done").append(`
-                <li>
-                     <button id="${data.id}" type="button" class="btn btn-dark">${data.content}
-                         <a href="" id="${data.id}" class="dones delete">
-                            <i class="far fa-times-circle"></i>
-                        </a>
-                    </button>
-                 </li>
-            `)
+        for (let i = 0; i < data.length; i++){
+            $("#done").append(`
+            <li>
+                 <button id="${data[i].id}" type="button" class="btn btn-dark">${data[i].content}
+                     <a href="" id="${data[i].id}" class="dones delete">
+                        <i class="far fa-times-circle"></i>
+                    </a>
+                </button>
+             </li>
+        `)
+        }
+        
     })
 
 
@@ -51,18 +59,20 @@ $(document).ready(function () {
             content: text
         }
         $.post("/api/todos", todo).then((data) => {
-            $("#need").prepend(`
-            <li>
-                 <button id="${data.id}" type="button" class="btn btn-primary">${data.content}
-                     <a href="" id="${data.id}" class="need">
-                        <i class="far fa-check-circle"></i>
-                    </a>
-                     <a href="" id="${data.id}" class="todos delete">
-                        <i class="far fa-times-circle"></i>
-                    </a>
-                </button>
-             </li>
-            `)
+            for (let i = 0; i < data.length; i++){
+                $("#need").prepend(`
+                <li>
+                     <button id="${data.id}" type="button" class="btn btn-primary">${data.content}
+                         <a href="" id="${data.id}" class="need">
+                            <i class="far fa-check-circle"></i>
+                        </a>
+                         <a href="" id="${data.id}" class="todos delete">
+                            <i class="far fa-times-circle"></i>
+                        </a>
+                    </button>
+                 </li>
+                `)
+            }   
         });
     })
 
@@ -81,18 +91,20 @@ $(document).ready(function () {
             data: todo
         }).then((data) => {
             $.post("/api/doings", todo).then((response) => {
-                $("#doing").prepend(`
-                <li>
-                     <button id="${response.id}"type="button" class="btn btn-success">${response.content}
-                         <a href="" id="${response.id}" class="doing">
-                            <i class="far fa-check-circle"></i>
-                        </a>
-                         <a href="" id="${response.id}" class="doings delete">
-                            <i class="far fa-times-circle"></i>
-                        </a>
-                    </button>
-                 </li>
-                `)
+                for (let i = 0; i < response.length; i++){
+                    $("#doing").prepend(`
+                    <li>
+                         <button id="${response.id}"type="button" class="btn btn-success">${response.content}
+                             <a href="" id="${response.id}" class="doing">
+                                <i class="far fa-check-circle"></i>
+                            </a>
+                             <a href="" id="${response.id}" class="doings delete">
+                                <i class="far fa-times-circle"></i>
+                            </a>
+                        </button>
+                     </li>
+                    `)
+                }
             })
         });
     })
@@ -112,15 +124,17 @@ $(document).ready(function () {
             data: done
         }).then((data) => {
             $.post("/api/dones", todo).then((response) => {
-                $("#done").prepend(`
-                <li>
-                     <button id="${response.id}" type="button" class="btn btn-dark">${response.content}
-                         <a href="" id="${response.id}" class="dones delete">
-                            <i class="far fa-times-circle"></i>
-                        </a>
-                    </button>
-                 </li>
-                `)
+                for (let i = 0; i < response.length; i++){
+                    $("#done").prepend(`
+                    <li>
+                         <button id="${response.id}" type="button" class="btn btn-dark">${response.content}
+                             <a href="" id="${response.id}" class="dones delete">
+                                <i class="far fa-times-circle"></i>
+                            </a>
+                        </button>
+                     </li>
+                    `)
+                }
             })
         });
     })
