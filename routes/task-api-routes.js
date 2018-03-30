@@ -1,58 +1,58 @@
 var db = require("../models");
 
-module.exports = function (app) {
-  app.post("/api/currProject", function (req, res) {
+module.exports = function(app) {
+  app.post("/api/currProject", function(req, res) {
     db.Doing.findAll({
-      where:{
+      where: {
         project_id: req.body.id
       }
-    }).then(function () {
+    }).then(function() {
       res.end();
     });
 
     db.Done.findAll({
-      where:{
+      where: {
         project_id: req.body.id
       }
-    }).then(function () {
+    }).then(function() {
       res.end();
     });
 
     db.ToDo.findAll({
-      where:{
+      where: {
         project_id: req.body.id
       }
-    }).then(function () {
+    }).then(function() {
       res.end();
     });
   });
 
-  app.get("/api/doings/:id", function (req, res) {
+  app.get("/api/doings/:id", function(req, res) {
     db.Doing.findAll({
-      where:{
+      where: {
         project_id: req.params.id
       }
-    }).then(function (data) {
+    }).then(function(data) {
       res.json(data);
     });
   });
 
-  app.get("/api/dones/:id", function (req, res) {
+  app.get("/api/dones/:id", function(req, res) {
     db.Done.findAll({
-      where:{
+      where: {
         project_id: req.params.id
       }
-    }).then(function (data) {
+    }).then(function(data) {
       res.json(data);
     });
   });
 
-  app.get("/api/todos/:id", function (req, res) {
+  app.get("/api/todos/:id", function(req, res) {
     db.ToDo.findAll({
-      where:{
+      where: {
         project_id: req.params.id
       }
-    }).then(function (data) {
+    }).then(function(data) {
       res.json(data);
     });
   });
