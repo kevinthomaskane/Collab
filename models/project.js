@@ -7,12 +7,11 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   Project.associate = function(models) {
-    Project.belongsToMany(models.User, {
-      through: "user2project"
+    var User = models.User
+    Project.belongsToMany(User, {
+      through: "UserProject",
+      foreignKey: "projectId"
     });
-  };
-
-  Project.associate = function(models) {
     models.Project.hasMany(models.ToDo, {
       foreignKey: {
         onDelete: "CASCADE",
@@ -20,9 +19,6 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: false
       }
     });
-  };
-
-  Project.associate = function(models) {
     models.Project.hasMany(models.Doing, {
       foreignKey: {
         onDelete: "CASCADE",
@@ -30,9 +26,6 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: false
       }
     });
-  };
-
-  Project.associate = function(models) {
     models.Project.hasMany(models.Done, {
       foreignKey: {
         onDelete: "CASCADE",
