@@ -7,8 +7,9 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   Project.associate = function(models) {
-    Project.belongsToMany(models.User, {
-      through: "user2project"
+    var User = models.User
+    Project.belongsToMany(User, {
+      through: "UserProject"
     });
   };
 

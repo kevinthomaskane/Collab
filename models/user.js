@@ -19,10 +19,10 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   User.associate = function(models) {
-    User.belongsToMany(models.Project, {
-      through: "user2project"
+    var Project = models.Project
+    User.belongsToMany(Project, {
+      through: "UserProject"
     });
   };
-
   return User;
 };
