@@ -1,6 +1,6 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   var Project = sequelize.define("Project", {
-    name:{
+    name: {
       type: DataTypes.STRING,
       allowNull: false
     }
