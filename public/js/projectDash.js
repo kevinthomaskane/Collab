@@ -117,19 +117,18 @@ $(document).ready(function () {
 
     $(document).on("click", ".doing", function (event) {
         event.preventDefault();
-        var text = $(this).parent().parent().text();
-        var id = $(this).attr("id")
+        var text = $(this).parent().parent().text().trim();
+        var id = $(this).parent().attr("data-id")
         var done = {
             content: text,
-            id: id
-        }
+            project_id: project_id
+        };
         $(this).parent().parent().remove();
         $.ajax({
             method: "DELETE",
-            url: "/api/doing",
-            data: done
+            url: "/api/doings/" + id,
         }).then((data) => {
-            $.post("/api/dones", todo).then((response) => {
+            $.post("/api/dones", done).then((response) => {
                 for (let i = 0; i < response.length; i++){
                     $("#done").prepend(`
                     <li>
@@ -147,13 +146,13 @@ $(document).ready(function () {
 
     $(document).on("click", ".delete", function (event) {
         event.preventDefault();
-        var id = $(this).attr("id")
+        var id = $(this).parent().attr("data-id")
         var route = $(this).attr("class").split(" ")[0]
+        console.log(id);
         $(this).parent().remove();
         $.ajax({
             method: "DELETE",
-            url: "/api/" + route,
-            data: done
+            url: "/api/" + route + "/" + id
         }).then((data) => {
             console.log(data)
         });
