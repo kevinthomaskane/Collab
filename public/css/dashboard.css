@@ -1,6 +1,20 @@
 .projectButton{
     height: 150px;
     width: 200px;
+    margin: 0 3% 3% 0;
+    position: relative;
+}
+
+.projectButton i {
+    position: absolute;
+    left: 85%;
+    top: 5px;
+    font-size: 20px;
+    z-index: 5;
+}
+
+.projText{
+    font-size: 35px;
 }
 
 .header{
@@ -32,6 +46,10 @@
     margin-bottom: 50px;
     margin-top: 30px;
     overflow-x: scroll;
+    overflow-x: hidden;
     height: 200px;
     width: 100%;
 }
+
+
+
