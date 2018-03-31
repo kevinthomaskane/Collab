@@ -84,17 +84,17 @@ $(document).ready(function () {
         event.preventDefault();
         event.stopPropagation();
         event.stopImmediatePropagation();
-        var text = $(this).parent().text();
-        var id = $(this).attr("id")
+        var text = $(this).parent().text().trim();
+        var id = $(this).parent().attr("data-id");
         var todo = {
             content: text,
-            id: id
+            project_id: project_id
         }
+        console.log(todo.project_id);
         $(this).parent().remove();
         $.ajax({
             method: "DELETE",
-            url: "/api/todos",
-            data: todo
+            url: "/api/todos/" + id
         }).then((data) => {
             $.post("/api/doings", todo).then((response) => {
                 for (let i = 0; i < response.length; i++){

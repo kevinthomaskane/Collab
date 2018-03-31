@@ -66,7 +66,7 @@ module.exports = function(app) {
     });
   });
 
-  app.post("/api/doing", function (req, res) {
+  app.post("/api/doings", function (req, res) {
     db.Doing.create({
       content: req.body.content,
       project_id: req.body.project_id
@@ -75,12 +75,13 @@ module.exports = function(app) {
     });
   });
 
-  app.post("/api/done", function (req, res) {
-    db.Done.create({
-      content: req.body.content,
-      project_id: req.body.project_id
-    }).then(function (todo) {
-      res.json(todo);
+  app.delete("/api/todos/:id", function (req, res) {
+    db.ToDo.destroy({
+      where:{
+        id: req.params.id
+      }
+    }).then(function (data) {
+      res.json(data);
     });
   });
 };
