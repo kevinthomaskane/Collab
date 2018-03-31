@@ -56,4 +56,31 @@ module.exports = function(app) {
       res.json(data);
     });
   });
+
+  app.post("/api/todos", function (req, res) {
+    db.ToDo.create({
+      content: req.body.content,
+      project_id: req.body.project_id
+    }).then(function (todo) {
+      res.json(todo);
+    });
+  });
+
+  app.post("/api/doing", function (req, res) {
+    db.Doing.create({
+      content: req.body.content,
+      project_id: req.body.project_id
+    }).then(function (todo) {
+      res.json(todo);
+    });
+  });
+
+  app.post("/api/done", function (req, res) {
+    db.Done.create({
+      content: req.body.content,
+      project_id: req.body.project_id
+    }).then(function (todo) {
+      res.json(todo);
+    });
+  });
 };

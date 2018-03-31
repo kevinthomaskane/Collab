@@ -18,10 +18,10 @@ $(document).ready(function () {
                 </button>
              </li>
             `)
-        } 
+        }
     })
 
-    $.get("/api/doings" + project_id).then((data) => {
+    $.get("/api/doings/" + project_id).then((data) => {
         for (let i= 0; i< data.length; i++){
             $("#doing").append(`
             <li>
@@ -36,10 +36,10 @@ $(document).ready(function () {
             </li>
         `)
         }
-        
+
     })
 
-    $.get("/api/dones" + project_id).then((data) => {
+    $.get("/api/dones/" + project_id).then((data) => {
         for (let i = 0; i < data.length; i++){
             $("#done").append(`
             <li>
@@ -51,7 +51,7 @@ $(document).ready(function () {
              </li>
         `)
         }
-        
+
     })
 
 
@@ -59,7 +59,8 @@ $(document).ready(function () {
         event.preventDefault();
         var text = $(".need-item").val().trim();
         var todo = {
-            content: text
+            content: text,
+            project_id: project_id
         }
         $.post("/api/todos", todo).then((data) => {
             for (let i = 0; i < data.length; i++){
@@ -75,7 +76,7 @@ $(document).ready(function () {
                     </button>
                  </li>
                 `)
-            }   
+            }
         });
     })
 
