@@ -54,9 +54,9 @@ ul{
 }
 
 li button{
-    width: 100%;
+    width: 90%;
     background-color: white;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 #projectName{
     font-size: 200%;
@@ -76,12 +76,15 @@ li button{
     margin-bottom: 10px; 
 }
 
-
+.input-group{
+    width: 90%;
+    margin: 0 auto;
+}
 
 input{
-    border-radius: 10px;
-    
+    border-radius: 10px;   
 }
+
 
 #chatArea{
     height: 300px;
