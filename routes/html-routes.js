@@ -2,7 +2,7 @@ var path = require("path");
 
 module.exports = app => {
 
-  app.get("/", (req, res) => {
+  app.get("/login", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/html/login.html"));
   });
 
@@ -13,5 +13,7 @@ module.exports = app => {
   app.get("/projectDash", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/html/projectDash.html"));
   });
+
+ 
 
 };

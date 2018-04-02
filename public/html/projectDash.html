@@ -19,13 +19,16 @@
 <!-- Jquery -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
-<script type="text/javascript" src="../js/projectDash.js"></script>
+
 <!-- Bootstrap JS -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.0/socket.io.dev.js"></script>
+<style>
+ 
+</style>
 <body>
-
+        
     <div class="row header">
         <div class="col-md-5"></div>
         <div class="col-md-2">
@@ -137,42 +140,34 @@
                 <button type="button" class="btn btn-success">Gus</button>
             </div>
             <ul>Add collaborators to your project</ul>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <button class="btn btn-outline-secondary" type="button">@User</button>
+            <div class=" input-group mb-3">
+                <div class="dropdown-content input-group-prepend">
+                        
+                    <button id="usersSearchBtn" class="btn btn-outline-secondary" type="button">@User</button>
                 </div>
-                <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                <ul>
+                        <li class="dropdown"> <input id="usersSearch" type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" onkeyup="filterFunction()"></li>
+                        <div class="dropdown-content">
+                            <li></li>
+                            </div>
+                    </ul>
             </div>
+           
             <div id="chatArea">
                 <ul id="chatList" style="text-align: center">Group Chat
                     <li style="text-align: left">hello</li>
-                    <li style="text-align: left">hello</li>
-
-                    <li style="text-align: left">hello</li>
-
-                    <li style="text-align: left">hello</li>
-                    <li style="text-align: left">hello</li>
-                    <li style="text-align: left">hello</li>
-                    <li style="text-align: left">hello</li>
-                    <li style="text-align: left">hello</li>
-                    <li style="text-align: left">hello</li>
-                    <li style="text-align: left">hello</li>
-                    <li style="text-align: left">hello</li>
-                    <li style="text-align: left">hello</li>
-                    <li style="text-align: left">hello</li>
-                    <li style="text-align: left">hello</li>
-                    <li style="text-align: left">hello</li>
+        
 
                 </ul>
             </div>
             <div class="input-group mb-3">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <button class="btn btn-outline-secondary" type="button">
+                        <button id="sendMessage" class="btn btn-outline-secondary" type="button">
                             <i class="fas fa-location-arrow"></i>
                         </button>
                     </div>
-                    <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                    <input id="messageFild" type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
                 </div>
 
 
@@ -180,6 +175,8 @@
         </div>
 
     </div>
+
+    <script type="text/javascript" src="../js/projectDash.js"></script>
 
 
 </body>

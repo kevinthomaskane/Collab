@@ -18,9 +18,12 @@
   "homepage": "https://github.com/kevinthomaskane/Project-2#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
     "express": "^4.16.3",
+    "jquery": "^3.3.1",
     "mysql": "^2.15.0",
     "mysql2": "^1.5.3",
-    "sequelize": "^4.37.4"
+    "sequelize": "^4.37.4",
+    "socket.io": "^2.1.0"
   }
 }

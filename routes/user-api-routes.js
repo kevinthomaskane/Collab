@@ -2,7 +2,7 @@ var db = require("../models");
 
 module.exports = function(app) {
 
-  app.post("/api/login", function(req, res) {
+  app.post("login", function(req, res) {
     db.User.findOne({
       where: {
         username: req.body.username,
@@ -22,5 +22,26 @@ module.exports = function(app) {
       res.end();
     });
   });
+
+
+  //=============== Ed's cod========================
+  app.get("/projectDash/:search" , function(req,res){
+    db.User.findAll({
+      where:{
+        username: { like:req.params.search + '%'} 
+      }
+    }).then(function(data){
+      res.json(data)
+    })
+  })
+
+   
+
+
+
+   
+ 
+
+
 
 };

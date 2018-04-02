@@ -5,11 +5,15 @@
 // *** Dependencies
 // =============================================================
 var express = require("express");
+var socket = require("socket.io");
 var bodyParser = require("body-parser");
+var cookieParser = require('cookie-parser');
+var $ = require("jquery");
 
 // Sets up the Express App
 // =============================================================
 var app = express();
+app.use(cookieParser());
 var PORT = process.env.PORT || 8080;
 
 // Requiring our models for syncing
@@ -31,11 +35,32 @@ require("./routes/user-api-routes.js")(app);
 require("./routes/task-api-routes.js")(app);
 require("./routes/project-api-routes.js")(app);
 require("./routes/html-routes.js")(app);
+ 
+ 
 
-// Syncing our sequelize models and then starting our Express app
-// =============================================================
+
+
+ 
+ 
+ 
 db.sequelize.sync().then(function() {
-  app.listen(PORT, function() {
+  var server = app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
+    
   });
-});
+ 
+
+// ============---->>>>  SOCKET.IO CODE ------->>>>>=========================================
+  var io = socket(server);
+
+  io.on("connection", function(socket){
+      console.log("socket connection made ",socket.id)
+  
+      socket.on("chat", function(data){
+          io.sockets.emit("chat", data)
+      })
+  
+  });
+  
+
+}); 
