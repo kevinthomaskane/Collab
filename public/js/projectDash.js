@@ -196,7 +196,8 @@ $(document).ready(function() {
     console.log(user);
     $.post("/api/contributors/" + project_id, userObj).then(function (response) {
       console.log(response);
-      $("#contributors").append()
+      $("#contributors").empty();
+      printCollabs();
     });
   });
 
