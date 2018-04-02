@@ -13,7 +13,7 @@ $(document).ready(function() {
   writeProjects();
 
   function writeProjects() {
-    $.post("/api/userProjects", object).then((data) => {
+    $.post("/api/userProjects", object).then(function (data) {
       $("#projectTiles").html("")
       console.log(data.Projects)
       for (let i = 0; i < data.Projects.length; i++) {
@@ -34,14 +34,15 @@ $(document).ready(function() {
   }
 
   $("#modalSubmit").on("click", function() {
+    console.log("here");
     var projObj = {
       name: $("#inputProject").val(),
       userId: userId
     };
-    $("#myModal").modal("hide")
-    $("#inputProject").val("")
+    $("#myModal").modal("hide");
+    $("#inputProject").val("");
     $.post("/api/addProject", projObj).then((data) => {
-      writeProjects()
+      writeProjects();
     });
 
   });
@@ -62,22 +63,21 @@ $(document).ready(function() {
 
   });
 
-  $(document).on("click", ".projText", (event) => {
-    var id =
-      $(this)["0"].activeElement.children["0"].attributes["0"].nodeValue;
+  $(document).on("click", ".projText", function (event) {
+    var id = $(this).attr("data-id");
     var object = {
       id: id
     }
     localStorage.setItem("project_id", id);
-    $.post("/api/currProject", object).then((data) => {
+    $.post("/api/currProject", object).then(function (data) {
       window.location.href = "/projectDash"
 
 
     });
   });
 
-  $("#projectTiles").on("click", ".delete", () => {
-    var id = $(this)["0"].activeElement.attributes[2].nodeValue;
+  $("#projectTiles").on("click", ".delete", function () {
+    var id = $(this).parent().attr("data-id");
     if (deleteProject) {
       var object = {
         id: id
@@ -93,7 +93,7 @@ $(document).ready(function() {
 
   })
 
-  $("#deleteModal").on("click", () => {
+  $("#deleteModal").on("click", function () {
     deleteProject = true;
   });
 
