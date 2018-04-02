@@ -13,8 +13,21 @@
     text-align: center;
 }
 
+#logout{
+    color: white;
+    font-family: 'Lobster', cursive;
+    font-size: 250%;
+    line-height: 100px;
+    vertical-align: middle;
+    text-align: center;
+}
+
 *{
     font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+body{
+    position: relative;
 }
 
 #sideNav{
@@ -54,9 +67,9 @@ ul{
 }
 
 li button{
-    width: 100%;
+    width: 90%;
     background-color: white;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 #projectName{
     font-size: 200%;
@@ -76,12 +89,15 @@ li button{
     margin-bottom: 10px; 
 }
 
-
+.input-group{
+    width: 90%;
+    margin: 0 auto;
+}
 
 input{
-    border-radius: 10px;
-    
+    border-radius: 10px;   
 }
+
 
 #chatArea{
     height: 300px;
