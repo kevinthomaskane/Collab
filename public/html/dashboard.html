@@ -2,104 +2,101 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
-    
-    <link rel="stylesheet" href="../css/dashboard.css">
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1"
-        crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-    <script type="text/javascript" src="../js/dash.js"></script>
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="../js/dash.js"></script>
 </head>
 
 <body>
-    <div id="myModal" class="modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Add a Project</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    What is the name of your project? <input id="inputProject" type="text">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id="modalSubmit" class="btn btn-primary">Save Project</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
+  <div id="myModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add a Project</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
+        <div class="modal-body">
+          What is the name of your project? <input id="inputProject" type="text">
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="modalSubmit" class="btn btn-primary">Save Project</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
     </div>
-    <div id="deleteModal" class="modal" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Are you sure you want to delete?</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" id="deleteSubmit" class="btn btn-primary" data-dismiss="modal">Yes, Delete</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
+  </div>
+
+  <div id="deleteModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Are you sure you want to delete?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-    <div class="row header">
-        <div class="col-md-5"></div>
-        <div class="col-md-2">
-            <a id="logo" href="login.html">Trello</a>
+        <div class="modal-footer">
+          <button type="button" id="deleteSubmit" class="btn btn-primary" data-dismiss="modal">Yes, Delete</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
-        <div class="col-md-5"></div>
+      </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <span id="projectName">Your Projects</span>
-            </div>
-            <div class="col-md-6">
+  </div>
 
-            </div>
-        </div>
-
-        <div class="row">
-            <div id="projectTiles" class="col-sm-12"></div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-5">
-                <label>Search for a project:
-                    <input list="projectsDrop" name="myProjects" id="test" />
-                </label>
-                <datalist id="projectsDrop" name="myProjects">
-                </datalist>
-            </div>
-            <div class="col-md-7">
-
-            </div>
-        </div>
-        <div class="row" style="margin-top: 20px">
-            <div class="col-md-5">
-                <button id="addProj" type="button" data-toggle="modal" data-target="#myModal" class="btn btn-success btn-lg">
-                    Add a New Project
-                    <i class="fas fa-plus-circle"></i>
-                </button>
-            </div>
-        </div>
+  <div class="row header">
+    <div class="col-md-5"></div>
+    <div class="col-md-2">
+      <a id="logo" href="login.html">Trello</a>
     </div>
+    <div class="col-md-5"></div>
+  </div>
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-6">
+       <span id="projectName">Your Projects</span>
+      </div>
+      <div class="col-md-6">
+      </div>
+    </div>
+
+    <div class="row">
+      <div id="projectTiles" class="col-sm-12"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-5">
+        <label>Search for a project:
+          <input list="projectsDrop" name="myProjects" id="test" />
+        </label>
+        <datalist id="projectsDrop" name="myProjects"></datalist>
+      </div>
+      <div class="col-md-7"></div>
+    </div>
+
+    <div class="row" style="margin-top: 20px">
+      <div class="col-md-5">
+        <button id="addProj" type="button" data-toggle="modal" data-target="#myModal" class="btn btn-success btn-lg">
+          Add a New Project
+          <i class="fas fa-plus-circle"></i>
+        </button>
+      </div>
+    </div>
+  </div>
 
 
 </body>
