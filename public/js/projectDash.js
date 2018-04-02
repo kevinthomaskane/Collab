@@ -23,64 +23,62 @@ function printCollabs() {
   });
 }
 
-function writeEverything(){
-    $("#need").empty();
-    $("#doing").empty();
-    $("#done").empty();
-    $.get("/api/todos/" + project_id).then((data) => {
-        for (let i = 0; i < data.length; i++) {
-          $("#need").append(`
-            <li>
-             <button data-id="${data[i].id}" type="button"
-             class="btn btn-primary">${data[i].content}
-               <a href="" data-id="${data[i].id}" class="need">
-                  <i class="far fa-check-circle"></i>
-               </a>
-               <a href="" data-id="${data[i].id}" class="todos delete">
-                  <i class="far fa-times-circle"></i>
-               </a>
-             </button>
-            </li>
-          `);
-        }
-      });
-    
-      $.get("/api/doings/" + project_id).then((data) => {
-        for (let i = 0; i < data.length; i++) {
-          $("#doing").append(`
-            <li>
-             <button data-id="${data[i].id}"type="button"
-             class="btn btn-success">${data[i].content}
-              <a href="" data-id="${data[i].id}" class="doing">
-               <i class="far fa-check-circle"></i>
-              </a>
-              <a href="" data-id="${data[i].id}" class="doings delete">
-               <i class="far fa-times-circle"></i>
-              </a>
-             </button>
-            </li>
-          `);
-        }
-    
-      });
-    
-      $.get("/api/dones/" + project_id).then((data) => {
-        for (let i = 0; i < data.length; i++) {
-          $("#done").append(`
-            <li>
-             <button data-id="${data[i].id}" type="button"
-             class="btn btn-dark">${data[i].content}
-              <a href="" data-id="${data[i].id}" class="dones delete">
-               <i class="far fa-times-circle"></i>
-              </a>
-             </button>
-            </li>
-          `);
-        }
-    
-      });
+function writeEverything() {
+  $("#need").empty();
+  $("#doing").empty();
+  $("#done").empty();
+  $.get("/api/todos/" + project_id).then((data) => {
+    for (let i = 0; i < data.length; i++) {
+      $("#need").append(`
+        <li>
+         <button data-id="${data[i].id}" type="button"
+         class="btn btn-primary">${data[i].content}
+           <a href="" data-id="${data[i].id}" class="need">
+              <i class="far fa-check-circle"></i>
+           </a>
+           <a href="" data-id="${data[i].id}" class="todos delete">
+              <i class="far fa-times-circle"></i>
+           </a>
+         </button>
+        </li>
+      `);
+    }
+  });
+
+  $.get("/api/doings/" + project_id).then((data) => {
+    for (let i = 0; i < data.length; i++) {
+      $("#doing").append(`
+        <li>
+         <button data-id="${data[i].id}"type="button"
+         class="btn btn-success">${data[i].content}
+          <a href="" data-id="${data[i].id}" class="doing">
+           <i class="far fa-check-circle"></i>
+          </a>
+          <a href="" data-id="${data[i].id}" class="doings delete">
+           <i class="far fa-times-circle"></i>
+          </a>
+         </button>
+        </li>
+      `);
+    }
+  });
+
+  $.get("/api/dones/" + project_id).then((data) => {
+    for (let i = 0; i < data.length; i++) {
+      $("#done").append(`
+        <li>
+         <button data-id="${data[i].id}" type="button"
+         class="btn btn-dark">${data[i].content}
+          <a href="" data-id="${data[i].id}" class="dones delete">
+           <i class="far fa-times-circle"></i>
+          </a>
+         </button>
+        </li>
+      `);
+    }
+  });
 }
- 
+
 $(document).ready(function() {
 
   writeEverything();
@@ -204,7 +202,7 @@ $(document).ready(function() {
         writeEverything();
       });
     });
-   
+
   });
 
   $(document).on("click", ".doing", function(event) {
@@ -237,7 +235,7 @@ $(document).ready(function() {
         writeEverything();
       });
     });
-    
+
   });
 
   $(document).on("click", ".delete", function(event) {
@@ -267,7 +265,7 @@ $(document).ready(function() {
       printCollabs();
     });
   });
-  
+
   $("#logout").on("click", function(){
     localStorage.removeItem("username")
     localStorage.removeItem("project_id")
