@@ -17,9 +17,9 @@ $(document).ready(function() {
            </a>
          </button>
         </li>
-        `)
+      `);
     }
-  })
+  });
 
   $.get("/api/doings/" + project_id).then((data) => {
     for (let i = 0; i < data.length; i++) {
@@ -35,10 +35,10 @@ $(document).ready(function() {
           </a>
          </button>
         </li>
-        `)
+      `);
     }
 
-  })
+  });
 
   $.get("/api/dones/" + project_id).then((data) => {
     for (let i = 0; i < data.length; i++) {
@@ -51,10 +51,10 @@ $(document).ready(function() {
           </a>
          </button>
         </li>
-        `)
+      `);
     }
 
-  })
+  });
 
 
   $(".add-need").on("click", function(event) {
@@ -78,10 +78,10 @@ $(document).ready(function() {
             </a>
            </button>
           </li>
-                `)
+        `);
       }
     });
-  })
+  });
 
   $(document).on("click", ".need", function(event) {
     event.preventDefault();
@@ -114,11 +114,11 @@ $(document).ready(function() {
                  </a>
              </button>
             </li>
-                    `)
+          `);
         }
-      })
+      });
     });
-  })
+  });
 
   $(document).on("click", ".doing", function(event) {
     event.preventDefault();
@@ -136,20 +136,20 @@ $(document).ready(function() {
       $.post("/api/dones", done).then((response) => {
         for (let i = 0; i < response.length; i++) {
           $("#done").prepend(`
-                    <li>
-                     <button data-id="${response[i].id}" type="button"
-                     class="btn btn-dark">${response[i].content}
-                      <a href="" data-id="${response[i].id}"
-                      class="dones delete">
-                       <i class="far fa-times-circle"></i>
-                      </a>
-                     </button>
-                    </li>
-                    `)
+            <li>
+             <button data-id="${response[i].id}" type="button"
+             class="btn btn-dark">${response[i].content}
+              <a href="" data-id="${response[i].id}"
+              class="dones delete">
+               <i class="far fa-times-circle"></i>
+              </a>
+             </button>
+            </li>
+          `)
         }
-      })
+      });
     });
-  })
+  });
 
   $(document).on("click", ".delete", function(event) {
     event.preventDefault();
@@ -163,7 +163,6 @@ $(document).ready(function() {
     }).then((data) => {
       console.log(data)
     });
-  })
+  });
 
-
-})
+});
