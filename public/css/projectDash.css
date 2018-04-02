@@ -28,6 +28,7 @@
 
 body{
     position: relative;
+
 }
 
 #sideNav{
@@ -69,7 +70,7 @@ ul{
 li button{
     width: 90%;
     background-color: white;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 #projectName{
     font-size: 200%;
@@ -78,10 +79,13 @@ li button{
 }
 
 .itemsContainer{
-    /* border: solid .5px gray; */
     border-radius: 10px;
     background-color: #f0f0f5;
     text-align: center;
+}
+
+.itemsContainer:last-child{
+    padding-bottom: 3px;
 }
 
 #sideNav .btn-success{
@@ -113,3 +117,40 @@ input{
     padding-top: 10px;
     padding-bottom: 10px;
 }
+
+#doing .btn{
+    text-decoration: none;
+    padding: 5px;
+    width: 100%;
+    white-space: normal;
+    text-overflow: ellipsis;
+    display: block;
+    overflow: hidden;  
+}
+
+#need .btn{
+    text-decoration: none;
+    padding: 5px;
+    width: 100%;
+    white-space: normal;
+    text-overflow: ellipsis;
+    display: block;
+    overflow: hidden;  
+}
+
+#done .btn{
+    text-decoration: none;
+    padding: 5px;
+    width: 100%;
+    white-space: normal;
+    text-overflow: ellipsis;
+    display: block;
+    overflow: hidden;  
+}
+
+textarea{
+    outline: none;
+    height: 40px;
+    resize: none;
+}
+
