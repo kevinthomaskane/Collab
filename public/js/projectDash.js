@@ -278,54 +278,52 @@ $(document).ready(function() {
 
 //------------>>>>>> MY CODE<<<<-----------------------
 //================================================================
+//socket connect
+var socket = io.connect("http://localhost:8080");
+var message = $("#messageFild").val();
 
-    //socket connect
-    var socket = io.connect("http://localhost:8080");
-    var message = $("#messageFild").val();
+//send message click funct.
+$(document).on("click", "#sendMessage", function(event) {
+  var message = $("#messageFild").val()
+  socket.emit("chat", {
+    message: message
+  });
 
-    //send message click funct.
-    $(document).on("click", "#sendMessage", function (event) {
-        var message = $("#messageFild").val()
-        socket.emit("chat",{
-        message:message
-        });
+  $("#messageFild").val("")
 
-        $("#messageFild").val("")
-
-    });
-    //socket connect 'chat' and passes data
-    socket.on("chat", function(data){
-        $("#chatList").append('<p>'+ data.message +'</p>')
-        console.log("IMP: " + data.message)
-    });
-
-
-                        ///adding contributer to chat
-    $("#usersSearchBtn").on("click", function(){
-    var usersSearch = $("#usersSearch").val()
-
-    $.get("/projectDash/" + usersSearch, function(data){
-        console.log("AAAA" +  JSON.stringify(data[0].username));
-        $("#contributors").append("<button class='btn btn-success'>"+ data[0].username)
-    })
-
-    })
-
-    function filterFunction() {
-
-        var usersSearch = $("#usersSearch").val();
-        var div = document.getElementsByClassName("dropdown-content");
-
-        $.get("/projectDash/" + usersSearch, function(data){
+});
+//socket connect 'chat' and passes data
+socket.on("chat", function(data) {
+  $("#chatList").append('<p>' + data.message + '</p>')
+  console.log("IMP: " + data.message)
+});
 
 
-            console.log(data)
-            $("#contributors").append("<button class='btn btn-success'>"+ data[0].username)
+///adding contributer to chat
+$("#usersSearchBtn").on("click", function() {
+  var usersSearch = $("#usersSearch").val()
 
-        })
+  $.get("/projectDash/" + usersSearch, function(data) {
+    console.log("AAAA" + JSON.stringify(data[0].username));
+    $("#contributors").append("<button class='btn btn-success'>" + data[0].username)
+  })
+
+})
+
+function filterFunction() {
+
+  var usersSearch = $("#usersSearch").val();
+  var div = document.getElementsByClassName("dropdown-content");
+
+  $.get("/projectDash/" + usersSearch, function(data) {
 
 
-        }
+    console.log(data)
+    $("#contributors").append("<button class='btn btn-success'>" + data[0].username)
 
+  })
+
+
+}
         //========================================================
         //<<<--------------------------------------------------->>>>>s
