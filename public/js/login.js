@@ -7,7 +7,7 @@ $(document).ready(function () {
       console.log("here")
     window.location.href = "/home";
   }
-
+                    
   $("#submitUser").on("click", () => {
       console.log("here");
       var userObject = {

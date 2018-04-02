@@ -1,11 +1,10 @@
-
 var project_id = localStorage.getItem("project_id")
 
 $(document).ready(function () {
 
 
     $.get("/api/todos/" + project_id).then((data) => {
-        for (let i = 0; i< data.length; i++){
+        for (let i = 0; i < data.length; i++) {
             $("#need").append(`
             <li>
                  <button data-id="${data[i].id}" type="button" class="btn btn-primary">${data[i].content}
@@ -22,7 +21,7 @@ $(document).ready(function () {
     })
 
     $.get("/api/doings/" + project_id).then((data) => {
-        for (let i= 0; i< data.length; i++){
+        for (let i = 0; i < data.length; i++) {
             $("#doing").append(`
             <li>
                 <button data-id="${data[i].id}"type="button" class="btn btn-success">${data[i].content}
@@ -40,7 +39,7 @@ $(document).ready(function () {
     })
 
     $.get("/api/dones/" + project_id).then((data) => {
-        for (let i = 0; i < data.length; i++){
+        for (let i = 0; i < data.length; i++) {
             $("#done").append(`
             <li>
                  <button data-id="${data[i].id}" type="button" class="btn btn-dark">${data[i].content}
@@ -63,7 +62,7 @@ $(document).ready(function () {
             project_id: project_id
         }
         $.post("/api/todos", todo).then((data) => {
-            for (let i = 0; i < data.length; i++){
+            for (let i = 0; i < data.length; i++) {
                 $("#need").prepend(`
                 <li>
                      <button data-id="${data[i].id}" type="button" class="btn btn-primary">${data[i].content}
@@ -97,7 +96,7 @@ $(document).ready(function () {
             data: todo
         }).then((data) => {
             $.post("/api/doings", todo).then((response) => {
-                for (let i = 0; i < response.length; i++){
+                for (let i = 0; i < response.length; i++) {
                     $("#doing").prepend(`
                     <li>
                          <button data-id="${response[i].id}"type="button" class="btn btn-success">${response[i].content}
@@ -130,7 +129,7 @@ $(document).ready(function () {
             data: done
         }).then((data) => {
             $.post("/api/dones", todo).then((response) => {
-                for (let i = 0; i < response.length; i++){
+                for (let i = 0; i < response.length; i++) {
                     $("#done").prepend(`
                     <li>
                          <button data-id="${response[i].id}" type="button" class="btn btn-dark">${response[i].content}

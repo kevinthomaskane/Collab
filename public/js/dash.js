@@ -54,26 +54,28 @@ $(document).ready(function() {
       id: id
     }
     $.post("/api/currProject", object).then((data) => {
-      window.location.href = "/projectDash";
+      // window.location.href = "/projectDash";
     });
     
   });
 
-  $(document).on("click", ".projText", (event) => {
-    var id = $(this)["0"].activeElement.children["0"].attributes["0"].nodeValue
+  $(document).on("click", ".projText", function(event) {
+    var id = $(this).attr("data-id")
+    console.log(id)
     var object = {
       id: id
     }
     localStorage.setItem("project_id", id);
     $.post("/api/currProject", object).then((data) => {
-            window.location.href = "/projectDash"
+            // window.location.href = "/projectDash"
        
       
     });
   });
 
   $("#projectTiles").on("click", ".delete", ()=>{
-    var id = $(this)["0"].activeElement.attributes[2].nodeValue;
+    console.log($(this))
+    var id = $(this).parent().attr("data-id")
       if (deleteProject){
         var object = {
             id: id
