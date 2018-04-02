@@ -1,8 +1,20 @@
 .projectButton{
     height: 150px;
-    width: 200px;
+    width: 250px;
+    text-align: center;
+    line-height: 150px;
     margin: 0 3% 3% 0;
+    color: white;
+    background-color: rgb(34, 34, 219);
     position: relative;
+    display: inline-block;
+    border-radius: 5px;
+    
+    
+}
+
+body{
+    background-color: rgb(235, 233, 233);
 }
 
 .projectButton i {
@@ -13,8 +25,17 @@
     z-index: 5;
 }
 
-.projText{
+.projectButton a{
     font-size: 35px;
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+    width: 250px;
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    
 }
 
 .header{
@@ -24,6 +45,15 @@
 }
 
 #logo{
+    color: white;
+    font-family: 'Lobster', cursive;
+    font-size: 250%;
+    line-height: 100px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#logout{
     color: white;
     font-family: 'Lobster', cursive;
     font-size: 250%;
@@ -47,7 +77,7 @@
     margin-top: 30px;
     overflow-x: scroll;
     overflow-x: hidden;
-    height: 200px;
+    height: 300px;
     width: 100%;
 }
 
