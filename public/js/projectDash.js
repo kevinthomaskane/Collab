@@ -165,4 +165,10 @@ $(document).ready(function() {
     });
   });
 
+  $("#logout").on("click", function(){
+    localStorage.removeItem("username")
+    localStorage.removeItem("project_id")
+    localStorage.removeItem("id")
+  })
+
 });

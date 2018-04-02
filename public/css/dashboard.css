@@ -32,6 +32,15 @@
     text-align: center;
 }
 
+#logout{
+    color: white;
+    font-family: 'Lobster', cursive;
+    font-size: 250%;
+    line-height: 100px;
+    vertical-align: middle;
+    text-align: center;
+}
+
 *{
     font-family: 'Ubuntu Condensed', sans-serif;
 }
