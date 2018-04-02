@@ -40,6 +40,23 @@ module.exports = function(app) {
       console.log(db.User.prototype);
       user.addProjects([req.params.project_id]);
       res.json(user);
+    });
+  });
+
+  app.get("/api/contributors/:project_id", function (req, res) {
+    console.log(db.Project.prototype);
+    db.Project.findOne({
+      where:{
+        id: req.params.project_id
+      },
+      include: [{
+        model: db.User,
+        through: {
+          attributes: [],
+        }
+      }]
+    }).then(function (project) {
+      res.json(project);
     })
   });
 };

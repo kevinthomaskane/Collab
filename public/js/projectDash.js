@@ -1,8 +1,31 @@
-var project_id = localStorage.getItem("project_id")
+var project_id = localStorage.getItem("project_id");
+var username = localStorage.getItem("username");
+
+function printCollabs() {
+  $.get("/api/contributors/" + project_id).then(function (data) {
+    console.log(data);
+    var curr;
+    for (var i = 0; i < data.Users.length; i++) {
+      if(data.Users[i].name === username){
+        $("#contributors").append(`
+          <button data-user=${data.Users[i].id}
+          type="button" class="btn btn-success">
+          You</button>
+          `);
+      } else {
+        $("#contributors").append(`
+          <button data-user=${data.Users[i].id}
+          type="button" class="btn btn-success">
+          ${data.Users[i].name}</button>
+          `);
+      }
+    }
+  });
+}
 
 $(document).ready(function() {
 
-
+  printCollabs();
   $.get("/api/todos/" + project_id).then((data) => {
     for (let i = 0; i < data.length; i++) {
       $("#need").append(`
@@ -173,6 +196,7 @@ $(document).ready(function() {
     console.log(user);
     $.post("/api/contributors/" + project_id, userObj).then(function (response) {
       console.log(response);
+      $("#contributors").append()
     });
   });
 
