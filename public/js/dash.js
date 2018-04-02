@@ -9,13 +9,12 @@ $(document).ready(function() {
     username: userName,
     userId: userId.toString()
   }
-
   writeProjects();
 
   function writeProjects() {
     $.post("/api/userProjects", object).then(function (data) {
       $("#projectTiles").html("")
-      console.log(data.Projects)
+      console.log(data)
       for (let i = 0; i < data.Projects.length; i++) {
         $("#projectTiles").append(`
           <button type="button"

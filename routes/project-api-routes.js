@@ -4,12 +4,15 @@ module.exports = function(app) {
   app.post("/api/userProjects", function(req, res) {
     console.log(req.body);
     db.User.findOne({
+      where:{
+        id: req.body.userId
+      },
       include: [{
         model: db.Project,
         through: {
           attributes: [],
           where: {
-            UserId: req.body.userId
+            userId: req.body.userId
           }
         }
       }]
@@ -23,9 +26,20 @@ module.exports = function(app) {
         name: req.body.name,
       })
       .then(function(project) {
-        console.log(db.Project.prototype);
         project.setUsers([req.body.userId]);
         res.json(project);
       });
+  });
+
+  app.post("/api/contributors/:project_id", function (req, res) {
+    db.User.findOne({
+      where: {
+        name: req.body.name
+      }
+    }).then(function (user) {
+      console.log(db.User.prototype);
+      user.addProjects([req.params.project_id]);
+      res.json(user);
+    })
   });
 };

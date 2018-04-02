@@ -165,4 +165,15 @@ $(document).ready(function() {
     });
   });
 
+  $("#addUser").on("click", function () {
+    var user = $("#submitContributer").val().trim();
+    var userObj = {
+      name: user
+    };
+    console.log(user);
+    $.post("/api/contributors/" + project_id, userObj).then(function (response) {
+      console.log(response);
+    });
+  });
+
 });
