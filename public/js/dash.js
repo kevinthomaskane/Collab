@@ -18,13 +18,12 @@ $(document).ready(function() {
       console.log(data.Projects)
       for (let i = 0; i < data.Projects.length; i++) {
         $("#projectTiles").append(`
-          <button type="button"
-          class="btn btn-primary projectButton">
-          <a data-id="${data.Projects[i].id}"
+          <div class="projectButton">
+          <a href="" data-id="${data.Projects[i].id}"
           class="projText">${data.Projects[i].name}</a>
-          <a data-toggle="modal" data-target="#deleteModal"
+          <a href="" data-toggle="modal" data-target="#deleteModal"
           data-id="${data.Projects[i].id}" class="delete"><i
-          class="fas fa-times-circle"></i></a></button>`);
+          class="fas fa-times-circle"></i></a></div>`);
 
         $("#projectsDrop").append("<option class='options' data-id='" +
           data.Projects[i].id + "' value='" +
@@ -47,21 +46,21 @@ $(document).ready(function() {
 
   });
 
-  $(document).on("change", "#test", () => {
-    var id;
-    for (let i = 0; i < $(this)["0"].activeElement.list.children.length; i++) {
-      if ($(this)["0"].activeElement.list.children[i].attributes[2].nodeValue === $("#test").val()) {
-        id = $(this)["0"].activeElement.list.children[i].attributes[2].nodeValue
-      }
-    }
-    var object = {
-      id: id
-    }
-    $.post("/api/currProject", object).then((data) => {
-      window.location.href = "/projectDash";
-    });
+  // $(document).on("change", "#test", function(){
+  //   var id;
+  //   for (let i = 0; i < $(this)["0"].list.children.length; i++) {
+  //     if ($(this)["0"].activeElement.list.children[i].attributes[1].nodeValue === $("#test").val()) {
+  //       id = $(this)["0"].activeElement.list.children[i].attributes[1].nodeValue
+  //     }
+  //   }
+  //   var object = {
+  //     id: id
+  //   }
+  //   $.post("/api/currProject", object).then((data) => {
+  //     window.location.href = "/projectDash";
+  //   });
 
-  });
+  // });
 
   $(document).on("click", ".projText", function (event) {
     var id = $(this).attr("data-id");
