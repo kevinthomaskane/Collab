@@ -36,12 +36,16 @@ module.exports = function(app) {
   })
 
    
-
-
-
-   
+// app.get("/",function(req,res){
+  
+//     if(){
+//       var token = "t"+ Math.rendom();
+//       res.cookie("token", token, {maxAge:999});
+//       return res.send()
+//     }
+//   } 
+// })
  
-
 
 
 };
