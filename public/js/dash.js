@@ -2,6 +2,7 @@ var userName = localStorage.getItem("username");
 var userId = localStorage.getItem("id");
 
 var deleteProject = false;
+var project_id;
 
 $(document).ready(function() {
 
@@ -69,31 +70,23 @@ $(document).ready(function() {
     localStorage.setItem("project_id", id);
     $.post("/api/currProject", object).then(function (data) {
       window.location.href = "/projectDash"
-
-
     });
-    
   });
 
   $("#projectTiles").on("click", ".delete", function () {
-    var id = $(this).parent().attr("data-id");
+    project_id  = $(this).attr("data-id");
+  });
+
+  $("#deleteModal").on("click", function () {
+    deleteProject = true;
     if (deleteProject) {
-      var object = {
-        id: id
-      };
       $.ajax({
         method: "DELETE",
-        url: "/api/userProjects",
-        data: object
+        url: "/api/userProjects/"+project_id
       }).then((data) => {
         writeProjects();
       });
     }
-
-  })
-
-  $("#deleteModal").on("click", function () {
-    deleteProject = true;
   });
 
   $("#logout").on("click", function(){

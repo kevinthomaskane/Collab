@@ -43,6 +43,16 @@ module.exports = function(app) {
     });
   });
 
+  app.delete("/api/userProjects/:id", function (req, res) {
+    db.Project.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function () {
+      res.end();
+    });
+  });
+
   app.get("/api/contributors/:project_id", function (req, res) {
     console.log(db.Project.prototype);
     db.Project.findOne({
