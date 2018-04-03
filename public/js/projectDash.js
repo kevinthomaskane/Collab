@@ -272,56 +272,62 @@ $(document).ready(function() {
     localStorage.removeItem("id")
   })
 
-  
 
+
+   });
+  
+ 
+var message = $("#messageFild").val();
+
+ 
+var socket = io.connect("http://localhost:8080");
+
+//send message click funct.
+$("#sendMessage").on("click", function () {
+  var message = $("#messageFild").val();
+ 
+    socket.emit("chat",{
+    message:message 
+    });
+console.log(message)
+    $("#messageFild").val("")
+ 
 });
 
-//------------>>>>>> MY CODE<<<<-----------------------
-//================================================================
+//socket connect 'chat' and passes data 
+socket.on("chat", function(data){
+    $("#messageli").append('<p>'+ data.message +'</p>')
+     
+});
  
-    //socket connect
-    var socket = io.connect("http://localhost:8080");
-    var message = $("#messageFild").val();
-    
-    //send message click funct.
-    $(document).on("click", "#sendMessage", function (event) {
-        var message = $("#messageFild").val()
-        socket.emit("chat",{
-        message:message
-        });
-    
-        $("#messageFild").val("")
-        
-    });
-    //socket connect 'chat' and passes data 
-    socket.on("chat", function(data){
-        $("#chatList").append('<p>'+ data.message +'</p>')
-        console.log("IMP: " + data.message)
-    });
-    
-    
-                        ///adding contributer to chat
-    $("#usersSearchBtn").on("click", function(){
-    var usersSearch = $("#usersSearch").val()
-        
-    $.get("/projectDash/" + usersSearch, function(data){
-        console.log("AAAA" +  JSON.stringify(data[0].username));
-        $("#contributors").append("<button class='btn btn-success'>"+ data[0].username)
-    })
-    
-    })
-    
+ 
+ 
+ 
+
+
+
+
+
+
     function filterFunction() {
     
+     $("#foundusers").empty()
+ 
         var usersSearch = $("#usersSearch").val();
-        var div = document.getElementsByClassName("dropdown-content");
+         
         
-        $.get("/projectDash/" + usersSearch, function(data){
-        
-        
-            console.log(data)
-            $("#contributors").append("<button class='btn btn-success'>"+ data[0].username)
-            
+        $.get("/projectDash/" + usersSearch, function(data){ 
+              for(var i = 0; i<data.length; i++){
+                var id =data[i].username
+               
+              $("#foundusers").append("<button id= " +id+" class='btn btn-success'>"+ data[i].username)
+                
+               $("#"+id).on("click",function(){
+                $("#usersSearch").val("")
+                $("#foundusers").empty()
+                 $("#contributors").append("<button class='btn btn-success'>"+ this.id)
+               })
+              }
         })
         
         

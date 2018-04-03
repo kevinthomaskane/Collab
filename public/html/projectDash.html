@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-</head>
+<script>"https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.0/socket.io.dev.js"</script>
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" href="../css/projectDash.css">
@@ -15,10 +15,51 @@
 <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 <!-- Jquery -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<!-- <script type="text/javascript" src="../js/projectDash.js"></script> -->
-<!-- Bootstrap JS -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+<!-- Bootstrap JS -->
+ 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="../js/projectDash.js"></script> 
+</head>
+<style>
+
+  #dropchat:hover   #dropdown-content{
+   
+    position: absolute;
+    display: inline-block;
+    background-color:none;
+    border: 1px solid gray;
+    min-width: 200px;
+    max-width: 200px;
+    min-height: 0px;
+    height: auto;
+    margin-top: 50px;
+  }
+
+   #dropchat  #dropdown-content{
+      display:none;
+    
+   }
+
+   #dropchat {
+     display: inline-block;
+     text-align: center;
+     vertical-align: middle;
+    
+   
+   }
+
+   #foundusers  {
+     margin-top:15px;
+     margin-bottom:15px;
+   }
+
+   #dropchat ul:empty{
+     border: none;
+   }
+
+   
+</style>
 <body>
 
   <div class="row header">
@@ -92,55 +133,51 @@
       <p>Current contributors</p>
       <div id="contributors">
         
+
+
+
+
+
       </div>
       <ul>Add collaborators to your project</ul>
-      <div class="input-group mb-3">
+     
+        <div id="dropchat"> 
+          <div class="input-group mb-3">
         <div class="input-group-prepend">
           <button id="addUser" class="btn btn-outline-secondary" type="button">@User</button>
+      
+          <input id="usersSearch" type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" onkeyup="filterFunction()">
+          <ul id="dropdown-content">
+            <li id="foundusers"></li>
+          </ul> 
+         </div>
         </div>
-        <li class="dropdown"> <input id="usersSearch" type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" onkeyup="filterFunction()"></li>
-
-        <input id="submitContributer" type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
       </div>
+      
       <div id="chatArea">
         <ul id="chatList" style="text-align: center">Group Chat
-          <li style="text-align: left">hello</li>
-          <li style="text-align: left">hello</li>
+            <li id="messageli" style="text-align: left">hello</li>
 
-          <li style="text-align: left">hello</li>
-
-          <li style="text-align: left">hello</li>
-          <li style="text-align: left">hello</li>
-          <li style="text-align: left">hello</li>
-          <li style="text-align: left">hello</li>
-          <li style="text-align: left">hello</li>
-          <li style="text-align: left">hello</li>
-          <li style="text-align: left">hello</li>
-          <li style="text-align: left">hello</li>
-          <li style="text-align: left">hello</li>
-          <li style="text-align: left">hello</li>
-          <li style="text-align: left">hello</li>
-          <li style="text-align: left">hello</li>
 
         </ul>
-      </div>
-      <div class="input-group mb-3">
+    </div>
+    <div class="input-group mb-3">
         <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <button class="btn btn-outline-secondary" type="button">
-              <i class="fas fa-location-arrow"></i>
-            </button>
-          </div>
-          <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+            <div class="input-group-prepend">
+                <button id="sendMessage" class="btn btn-outline-secondary" type="button">
+                    <i id="sendMessage"  class="fas fa-location-arrow"></i>
+                </button>
+            </div>
+            <input id="messageFild" type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
         </div>
 
 
-      </div>
     </div>
+</div>
 
-  </div>
-
-  <script type="text/javascript" src="../js/projectDash.js"></script>
+</div>
+<script src="../js/projectDash.js"></script> 
+ 
 </body>
 
 </html>
