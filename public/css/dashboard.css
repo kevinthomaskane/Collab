@@ -9,7 +9,6 @@
     position: relative;
     display: inline-block;
     border-radius: 5px;
-
 }
 
 .projectButton:hover{
@@ -34,8 +33,7 @@
     display: block;
     white-space: nowrap;
     text-overflow: ellipsis;
-    overflow: hidden;
-    
+    overflow: hidden;   
 }
 
 .header{

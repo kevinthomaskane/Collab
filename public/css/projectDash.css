@@ -30,7 +30,6 @@
 
 body{
     position: relative;
-
 }
 
 #sideNav{
@@ -39,7 +38,6 @@ body{
     left: 75%;
     bottom: 0;
     background-color: #f0f0f5;
-
 }
 
 li{
@@ -62,7 +60,6 @@ li{
 color: white;
 padding-left: 3px;
 font-size: 20px;
-
 }
 
 ul{
@@ -78,8 +75,7 @@ li button{
 #projectName{
     font-size: 200%;
     font-weight: bold;
-    padding: 20px 0 20px 20px;
-    
+    padding: 20px 0 20px 20px;   
 }
 
 .itemsContainer{
