@@ -27,23 +27,22 @@ $(document).ready(function() {
 
         $("#projectsDrop").append("<option class='options' data-id='" +
           data.Projects[i].id + "' value='" +
-          data.Projects[i].name + "'>")
+          data.Projects[i].name + "'>");
       }
     });
   }
 
   $("#modalSubmit").on("click", function() {
-    console.log("here");
     var projObj = {
       name: $("#inputProject").val(),
       userId: userId
     };
+
     $("#myModal").modal("hide");
     $("#inputProject").val("");
     $.post("/api/addProject", projObj).then((data) => {
       writeProjects();
     });
-
   });
 
   // $(document).on("change", "#test", function(){

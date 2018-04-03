@@ -67,6 +67,6 @@ module.exports = function(app) {
       }]
     }).then(function (project) {
       res.json(project);
-    })
+    });
   });
 };

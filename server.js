@@ -35,32 +35,18 @@ require("./routes/user-api-routes.js")(app);
 require("./routes/task-api-routes.js")(app);
 require("./routes/project-api-routes.js")(app);
 require("./routes/html-routes.js")(app);
- 
- 
 
-
-
- 
- 
- 
 db.sequelize.sync().then(function() {
   var server = app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
-    
-  });
- 
 
+  });
 // ============---->>>>  SOCKET.IO CODE ------->>>>>=========================================
   var io = socket(server);
-
   io.on("connection", function(socket){
-      console.log("socket connection made ",socket.id)
-  
-      socket.on("chat", function(data){
-          io.sockets.emit("chat", data)
-      })
-  
+    console.log("socket connection made ",socket.id)
+    socket.on("chat", function(data){
+      io.sockets.emit("chat", data)
+    });
   });
-  
-
-}); 
+});
