@@ -85,9 +85,7 @@ $(document).ready(function() {
     localStorage.removeItem("username")
     localStorage.removeItem("project_id")
     localStorage.removeItem("id")
-    document.cookie.remove({
-      name:"token"
-    });
+    document.cookie = "token=; expires= Thu, 01 Jan 1970 00:00:00 UTC;";
   });
 
 });
