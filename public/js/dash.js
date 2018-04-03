@@ -3,6 +3,12 @@ var userId = localStorage.getItem("id");
 
 var deleteProject = false;
 
+if(!!window.performance && window.performance.navigation.type === 2)
+{
+    console.log('Reloading');
+    window.location.reload();
+}
+
 $(document).ready(function() {
 
   var object = {
@@ -37,29 +43,14 @@ $(document).ready(function() {
       name: $("#inputProject").val(),
       userId: userId
     };
-    $("#myModal").modal("hide");
-    $("#inputProject").val("");
-    $.post("/api/addProject", projObj).then((data) => {
-      writeProjects();
-    });
-
+    if (projObj.name.length > 1){
+      $("#myModal").modal("hide");
+      $("#inputProject").val("");
+      $.post("/api/addProject", projObj).then((data) => {
+        writeProjects();
+      });
+    }
   });
-
-  // $(document).on("change", "#test", function(){
-  //   var id;
-  //   for (let i = 0; i < $(this)["0"].list.children.length; i++) {
-  //     if ($(this)["0"].activeElement.list.children[i].attributes[1].nodeValue === $("#test").val()) {
-  //       id = $(this)["0"].activeElement.list.children[i].attributes[1].nodeValue
-  //     }
-  //   }
-  //   var object = {
-  //     id: id
-  //   }
-  //   $.post("/api/currProject", object).then((data) => {
-  //     window.location.href = "/projectDash";
-  //   });
-
-  // });
 
   $(document).on("click", ".projText", function (event) {
     var id = $(this).attr("data-id");

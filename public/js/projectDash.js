@@ -3,7 +3,8 @@ var username = localStorage.getItem("username");
 
 function printCollabs() {
   $.get("/api/contributors/" + project_id).then(function (data) {
-    console.log(username);
+    $("#projectName").text(data.name)
+    console.log(data);
     var curr;
     for (var i = 0; i < data.Users.length; i++) {
       if(data.Users[i].name === username){

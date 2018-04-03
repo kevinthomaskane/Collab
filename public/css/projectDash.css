@@ -9,26 +9,27 @@
     font-family: 'Lobster', cursive;
     font-size: 250%;
     line-height: 100px;
+    text-decoration: none;
     vertical-align: middle;
     text-align: center;
 }
 
 #logout{
     color: white;
-    font-family: 'Lobster', cursive;
-    font-size: 250%;
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+    font-size: 150%;
     line-height: 100px;
     vertical-align: middle;
     text-align: center;
 }
 
 *{
-    font-family: 'Ubuntu Condensed', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 body{
     position: relative;
-
 }
 
 #sideNav{
@@ -37,7 +38,6 @@ body{
     left: 75%;
     bottom: 0;
     background-color: #f0f0f5;
-
 }
 
 li{
@@ -45,7 +45,8 @@ li{
 }
 
 .itemHeader{
-    font-size: 200%;
+    font-size: 150%;
+    font-weight: bold;
 }
 
 .fa-check-circle{
@@ -59,7 +60,6 @@ li{
 color: white;
 padding-left: 3px;
 font-size: 20px;
-
 }
 
 ul{
@@ -74,14 +74,15 @@ li button{
 }
 #projectName{
     font-size: 200%;
-    padding: 20px 0 20px 20px;
-    
+    font-weight: bold;
+    padding: 20px 0 20px 20px;   
 }
 
 .itemsContainer{
     border-radius: 10px;
     background-color: #f0f0f5;
     text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(156, 155, 155, 0.2), 0 6px 20px 0 rgba(146, 145, 145, 0.05);
 }
 
 .itemsContainer:last-child{
@@ -121,7 +122,8 @@ input{
 #doing .btn{
     text-decoration: none;
     padding: 5px;
-    width: 100%;
+    width: 92%;
+    margin: 5px auto;
     white-space: normal;
     text-overflow: ellipsis;
     display: block;
@@ -131,7 +133,8 @@ input{
 #need .btn{
     text-decoration: none;
     padding: 5px;
-    width: 100%;
+    width: 92%;
+    margin: 5px auto;
     white-space: normal;
     text-overflow: ellipsis;
     display: block;
@@ -141,7 +144,8 @@ input{
 #done .btn{
     text-decoration: none;
     padding: 5px;
-    width: 100%;
+    width: 92%;
+    margin: 5px auto;
     white-space: normal;
     text-overflow: ellipsis;
     display: block;
