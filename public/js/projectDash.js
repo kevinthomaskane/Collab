@@ -6,7 +6,7 @@ function printCollabs() {
     console.log(username);
     var curr;
     for (var i = 0; i < data.Users.length; i++) {
-      if(data.Users[i].name === username){
+      if (data.Users[i].name === username) {
         $("#contributors").append(`
           <button data-user=${data.Users[i].id}
           type="button" class="btn btn-success">
@@ -79,12 +79,12 @@ function writeEverything() {
   });
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
 
   writeEverything();
   printCollabs();
 
-  $(".add-need").on("click", function(event) {
+  $(".add-need").on("click", function (event) {
     event.preventDefault();
     var text = $(".need-item").val().trim();
     var todo = {
@@ -112,7 +112,7 @@ $(document).ready(function() {
     writeEverything();
   });
 
-  $(".add-doing").on("click", function(event) {
+  $(".add-doing").on("click", function (event) {
     event.preventDefault();
     var text = $(".doing-item").val().trim();
     var todo = {
@@ -140,7 +140,7 @@ $(document).ready(function() {
     writeEverything();
   });
 
-  $(".add-done").on("click", function(event) {
+  $(".add-done").on("click", function (event) {
     event.preventDefault();
     var text = $(".done-item").val().trim();
     var todo = {
@@ -168,7 +168,7 @@ $(document).ready(function() {
     writeEverything();
   });
 
-  $(document).on("click", ".need", function(event) {
+  $(document).on("click", ".need", function (event) {
     event.preventDefault();
     var text = $(this).parent().text().trim();
     var id = $(this).parent().attr("data-id");
@@ -205,7 +205,7 @@ $(document).ready(function() {
 
   });
 
-  $(document).on("click", ".doing", function(event) {
+  $(document).on("click", ".doing", function (event) {
     event.preventDefault();
     var text = $(this).parent().parent().text().trim();
     var id = $(this).parent().attr("data-id")
@@ -238,7 +238,7 @@ $(document).ready(function() {
 
   });
 
-  $(document).on("click", ".delete", function(event) {
+  $(document).on("click", ".delete", function (event) {
     event.preventDefault();
     var id = $(this).parent().attr("data-id")
     var route = $(this).attr("class").split(" ")[0]
@@ -266,7 +266,7 @@ $(document).ready(function() {
     });
   });
 
-  $("#logout").on("click", function(){
+  $("#logout").on("click", function () {
     localStorage.removeItem("username")
     localStorage.removeItem("project_id")
     localStorage.removeItem("id")
@@ -274,64 +274,59 @@ $(document).ready(function() {
 
 
 
-   });
-  
- 
-var message = $("#messageFild").val();
+});
 
- 
+
+
+
+//========================================================
+//<<<------------------------------------------>>>>>
+
+
+
+//-------->>>set  socket connection<<<<------
 var socket = io.connect("http://localhost:8080");
+$(document).on("click","#sendMessage", () =>{
 
-//send message click funct.
-$("#sendMessage").on("click", function () {
   var message = $("#messageFild").val();
- 
-    socket.emit("chat",{
-    message:message 
-    });
-console.log(message)
-    $("#messageFild").val("")
- 
+
+  socket.emit("chat", {
+    message: message
+  });
+
+  $("#messageFild").val("")
+
+
+});
+//socket connect 'chat' and passes data & appends to chat chat box
+socket.on("chat", (data) =>{
+  $("#messageli").append("<li id='messageli' style='text-align: left'>" + data.message + "</li>")
+        console.log(data.message)
 });
 
-//socket connect 'chat' and passes data 
-socket.on("chat", function(data){
-    $("#messageli").append('<p>'+ data.message +'</p>')
-     
-});
- 
- 
- 
- 
 
 
 
 
 
 
-    function filterFunction() {
-    
-     $("#foundusers").empty()
- 
-        var usersSearch = $("#usersSearch").val();
-         
-        
-        $.get("/projectDash/" + usersSearch, function(data){ 
-              for(var i = 0; i<data.length; i++){
-                var id =data[i].username
-               
-              $("#foundusers").append("<button id= " +id+" class='btn btn-success'>"+ data[i].username)
-                
-               $("#"+id).on("click",function(){
-                $("#usersSearch").val("")
-                $("#foundusers").empty()
-                 $("#contributors").append("<button class='btn btn-success'>"+ this.id)
-               })
-              }
-        })
-        
-        
-        }
-        
-        //========================================================
-        //<<<--------------------------------------------------->>>>>s
+//=========---->>>>>dropdown user search <<<<<---==================
+function filterFunction() {
+
+  $("#foundusers").empty()
+  
+  var usersSearch = $("#usersSearch").val();
+  $.get("/projectDash/" + usersSearch, (data) =>{
+    for (var i = 0; i < data.length; i++) {
+      var id = data[i].username
+      $("#foundusers").append("<button id= " + id + " class='btn btn-success'>" + data[i].username)
+      $("#" + id).on("click", () =>{
+        $("#usersSearch").val("")
+        $("#foundusers").empty()
+        $("#contributors").append("<button class='btn btn-success'>" + this.id)
+      })
+    }
+  })
+
+
+}
