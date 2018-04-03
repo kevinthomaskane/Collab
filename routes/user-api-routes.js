@@ -13,8 +13,8 @@ module.exports = function(app) {
       console.log("data" + data);
       if (data) {
         console.log("here");
-        res.cookie("token", req.body.token,{maxAge: 9999});
-        res.end();
+        res.cookie("token", req.body.token,{maxAge: 999999999});
+        res.send(data);
       } else {
         res.end();
       }
@@ -32,14 +32,14 @@ module.exports = function(app) {
   app.get("/projectDash/:search" , function(req,res){
     db.User.findAll({
       where:{
-        username: { like:req.params.search + '%'} 
+        username: { like:req.params.search + '%'}
       }
     }).then(function(data){
       res.json(data)
     })
   })
 
-   
+
 
 
 
