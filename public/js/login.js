@@ -17,8 +17,12 @@ $(document).ready(function () {
         }
         if (name && user && pass) {
             $.post("/api/newUser", userObject).then((data) => {
+              console.log(data);
                 if (data) {
-                    alert("Thank you for signing up, now please log in")
+                  console.log("here");
+                  localStorage.setItem("username", data.username);
+                  localStorage.setItem("id", data.id);
+                  window.location.href = "/home";
                 }
             });
         } else {

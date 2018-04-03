@@ -23,7 +23,7 @@ module.exports = function(app) {
 
   app.post("/api/newUser", function(req, res) {
     db.User.create(req.body).then(function(data) {
-      res.end();
+      res.json(data);
     });
   });
 

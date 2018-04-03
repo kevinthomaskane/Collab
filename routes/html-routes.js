@@ -26,7 +26,7 @@ module.exports = app => {
       if(isTrue){
         res.sendFile(path.join(__dirname, "../public/html/dashboard.html"));
       } else {
-        res.sendFile(path.join(__dirname, "../public/html/login.html"));
+        res.sendFile(path.join(__dirname, "../public/html/landingpage.html"));
       }
     });
 
@@ -38,7 +38,7 @@ module.exports = app => {
       if(isTrue){
         res.sendFile(path.join(__dirname, "../public/html/dashboard.html"));
       } else {
-        res.sendFile(path.join(__dirname, "../public/html/login.html"));
+        res.sendFile(path.join(__dirname, "../public/html/landingpage.html"));
       }
     });
   });
@@ -48,7 +48,7 @@ module.exports = app => {
       if(isTrue){
         res.sendFile(path.join(__dirname, "../public/html/projectDash.html"));
       } else {
-        res.sendFile(path.join(__dirname, "../public/html/login.html"));
+        res.sendFile(path.join(__dirname, "../public/html/landingpage.html"));
       }
     });
   });
