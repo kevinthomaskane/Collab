@@ -22,7 +22,10 @@ module.exports = function(app) {
   });
 
   app.post("/api/newUser", function(req, res) {
+    req.body.token =  "t"+Math.random();
+    console.log(req.body.token);
     db.User.create(req.body).then(function(data) {
+      res.cookie("token", req.body.token,{maxAge: 999999999});
       res.json(data);
     });
   });

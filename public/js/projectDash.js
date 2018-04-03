@@ -28,7 +28,7 @@ function writeEverything() {
   $("#need").empty();
   $("#doing").empty();
   $("#done").empty();
-  
+
   $.get("/api/todos/" + project_id).then((data) => {
     for (let i = 0; i < data.length; i++) {
       $("#need").append(`
@@ -269,9 +269,10 @@ $(document).ready(function() {
   });
 
   $("#logout").on("click", function() {
-    localStorage.removeItem("username")
-    localStorage.removeItem("project_id")
-    localStorage.removeItem("id")
+    localStorage.removeItem("username");
+    localStorage.removeItem("project_id");
+    localStorage.removeItem("id");
+    document.cookie = "token=; expires= Thu, 01 Jan 1970 00:00:00 UTC;";
   })
 
 

@@ -17,14 +17,14 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="/socket.io/socket.io.js"></script>
 <!-- Bootstrap JS -->
- 
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="../js/projectDash.js"></script> 
+<script src="../js/projectDash.js"></script>
 </head>
 <style>
 
   #dropchat:hover   #dropdown-content{
-   
+
     position: absolute;
     display: inline-block;
     background-color:none;
@@ -38,15 +38,15 @@
 
    #dropchat  #dropdown-content{
       display:none;
-    
+
    }
 
    #dropchat {
      display: inline-block;
      text-align: center;
      vertical-align: middle;
-    
-   
+
+
    }
 
    #foundusers  {
@@ -58,7 +58,7 @@
      border: none;
    }
 
-   
+
 </style>
 <body>
 
@@ -68,7 +68,7 @@
       <a id="logo" href="html/dashboard.html">Trello</a>
     </div>
     <div class="col-md-3"></div>
-    <div class="col-md-2"><a id="logout" href="html/landingpage.html">Log Out</a></div>
+    <div class="col-md-2"><a id="logout" href="/">Log Out</a></div>
 
   </div>
 
@@ -132,7 +132,7 @@
       <h3 id="ProjectNameSide">Your Team Members</h3>
       <p>Current contributors</p>
       <div id="contributors">
-        
+
 
 
 
@@ -140,20 +140,20 @@
 
       </div>
       <ul>Add collaborators to your project</ul>
-     
-        <div id="dropchat"> 
+
+        <div id="dropchat">
           <div class="input-group mb-3">
         <div class="input-group-prepend">
           <button id="addUser" class="btn btn-outline-secondary" type="button">@User</button>
-      
+
           <input id="usersSearch" type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" onkeyup="filterFunction()">
           <ul id="dropdown-content">
             <li id="foundusers"></li>
-          </ul> 
+          </ul>
          </div>
         </div>
       </div>
-      
+
       <div id="chatArea">
         <ul id="chatList" style="text-align: center">Group Chat
             <li id="messageli" style="text-align: left">hello</li>
@@ -176,9 +176,9 @@
 </div>
 
 </div>
- 
 
- 
+
+
 </body>
 
 </html>
