@@ -36,12 +36,14 @@ $(document).ready(function () {
       console.log("here");
       var userObj = {
          username: $("#login-username").val().trim(),
-         password: $("#login-password").val().trim()
+         password: $("#login-password").val().trim(),
+         token: "t" + Math.random() 
        };
   
        $.post("/api/login/", userObj).then(function (data) {
-         localStorage.setItem("username", data.username);
-         localStorage.setItem("id", data.id);
+         console.log("here");
+         localStorage.setItem("username", userObj.username);
+         localStorage.setItem("id", data);
          window.location.href = "/home";
        });
 
@@ -51,6 +53,8 @@ $(document).ready(function () {
 
         
      
+
+
   
   });
    

@@ -3,14 +3,18 @@ var db = require("../models");
 module.exports = function(app) {
 
   app.post("/api/login", function(req, res) {
-    db.User.findOne({
-      where: {
+    db.User.update(
+      {token: req.body.token},
+      {where: {
         username: req.body.username,
         password: req.body.password
       }
     }).then(function(data) {
+      console.log("data" + data);
       if (data) {
-        res.json(data);
+        console.log("here");
+        res.cookie("token", req.body.token,{maxAge: 9999});
+        res.end();
       } else {
         res.end();
       }
@@ -36,16 +40,11 @@ module.exports = function(app) {
   })
 
    
-// app.get("/",function(req,res){
-  
-//     if(){
-//       var token = "t"+ Math.rendom();
-//       res.cookie("token", token, {maxAge:999});
-//       return res.send()
-//     }
-//   } 
-// })
- 
 
 
-};
+
+
+
+
+
+}
