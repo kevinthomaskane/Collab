@@ -49,21 +49,7 @@
  }
 
 
- #footer{
-     position: fixed;
-     bottom: 0;
-    background-color:black;
-    color: white;
-    font-family: 'Lobster', cursive;
-    font-size: 100%;
-    line-height: 125px;
-    vertical-align: middle;
-    text-align: center;
-    height: 130px;
-    width: 105%;
-    padding-right: 0;
-    
- }
+
 .badge{
     color: white;
     font-size: 15px;
@@ -114,12 +100,17 @@
     padding-left: 50px;
 }
 
-.third{
-    padding-bottom: 100px;
-    position: relative;
-}
+
 
 #footer h1{
     padding-top: 20px;
+}
+
+#footer{
+    background-color: black;
+    font-family: 'Lobster', cursive;
+    text-align: center;
+    color: white;
+    height: 130px;
 }
  
