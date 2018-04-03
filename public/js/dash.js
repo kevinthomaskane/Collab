@@ -4,6 +4,8 @@ var userId = localStorage.getItem("id");
 var deleteProject = false;
 var project_id;
 
+console.log(document.cookie);
+
 if(!!window.performance && window.performance.navigation.type === 2)
 {
     console.log('Reloading');
@@ -83,6 +85,9 @@ $(document).ready(function() {
     localStorage.removeItem("username")
     localStorage.removeItem("project_id")
     localStorage.removeItem("id")
-  })
+    document.cookie.remove({
+      name:"token"
+    });
+  });
 
 });

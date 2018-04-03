@@ -2,12 +2,7 @@ $(document).ready(function () {
     var name = false;
     var user = false;
     var pass = false;
-  
-    if (localStorage.getItem("id")){
-        console.log("here")
-      window.location.href = "/home";
-    }
-  
+
     $("#submitUser").on("click", () => {
         console.log("here");
         var userObject = {
@@ -30,16 +25,16 @@ $(document).ready(function () {
             alert("Please fill in all fields")
         }
     });
-  
-  
+
+
     $("#btn-login").on("click", () => {
       console.log("here");
       var userObj = {
          username: $("#login-username").val().trim(),
          password: $("#login-password").val().trim(),
-         token: "t" + Math.random() 
+         token: "t" + Math.random()
        };
-  
+
        $.post("/api/login/", userObj).then(function (data) {
          console.log("here");
          localStorage.setItem("username", userObj.username);
@@ -49,13 +44,11 @@ $(document).ready(function () {
 
 
      });
-     
-
-        
-     
 
 
-  
+
+
+
+
+
   });
-   
-           

@@ -255,7 +255,7 @@ $(document).ready(function () {
   });
 
   $("#addUser").on("click", function () {
-    var user = $("#submitContributer").val().trim();
+    var user = $("#usersSearch").val().trim();
     var userObj = {
       name: user
     };
@@ -310,7 +310,7 @@ socket.on("chat", (data) =>{
 function filterFunction() {
 
   $("#foundusers").empty()
-  
+
   var usersSearch = $("#usersSearch").val();
   $.get("/projectDash/" + usersSearch, (data) =>{
     for (var i = 0; i < data.length; i++) {
@@ -326,5 +326,3 @@ function filterFunction() {
 
 
 }
-
-
