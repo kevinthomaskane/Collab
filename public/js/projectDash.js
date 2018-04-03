@@ -2,7 +2,7 @@ var project_id = localStorage.getItem("project_id");
 var username = localStorage.getItem("username");
 
 function printCollabs() {
-  $.get("/api/contributors/" + project_id).then(function (data) {
+  $.get("/api/contributors/" + project_id).then(function(data) {
     $("#projectName").text(data.name)
     console.log(data);
     var curr;
@@ -80,12 +80,12 @@ function writeEverything() {
   });
 }
 
-$(document).ready(function () {
+$(document).ready(function() {
 
   writeEverything();
   printCollabs();
 
-  $(".add-need").on("click", function (event) {
+  $(".add-need").on("click", function(event) {
     event.preventDefault();
     var text = $(".need-item").val().trim();
     var todo = {
@@ -113,7 +113,7 @@ $(document).ready(function () {
     writeEverything();
   });
 
-  $(".add-doing").on("click", function (event) {
+  $(".add-doing").on("click", function(event) {
     event.preventDefault();
     var text = $(".doing-item").val().trim();
     var todo = {
@@ -141,7 +141,7 @@ $(document).ready(function () {
     writeEverything();
   });
 
-  $(".add-done").on("click", function (event) {
+  $(".add-done").on("click", function(event) {
     event.preventDefault();
     var text = $(".done-item").val().trim();
     var todo = {
@@ -169,7 +169,7 @@ $(document).ready(function () {
     writeEverything();
   });
 
-  $(document).on("click", ".need", function (event) {
+  $(document).on("click", ".need", function(event) {
     event.preventDefault();
     var text = $(this).parent().text().trim();
     var id = $(this).parent().attr("data-id");
@@ -206,7 +206,7 @@ $(document).ready(function () {
 
   });
 
-  $(document).on("click", ".doing", function (event) {
+  $(document).on("click", ".doing", function(event) {
     event.preventDefault();
     var text = $(this).parent().parent().text().trim();
     var id = $(this).parent().attr("data-id")
@@ -239,7 +239,7 @@ $(document).ready(function () {
 
   });
 
-  $(document).on("click", ".delete", function (event) {
+  $(document).on("click", ".delete", function(event) {
     event.preventDefault();
     var id = $(this).parent().attr("data-id")
     var route = $(this).attr("class").split(" ")[0]
@@ -254,23 +254,23 @@ $(document).ready(function () {
     });
   });
 
-  $("#addUser").on("click", function () {
-    var user = $("#submitContributer").val().trim();
+  $("#addUser").on("click", function() {
+    var user = $("#usersSearch").val().trim();
     var userObj = {
       name: user
     };
     console.log(user);
-    $.post("/api/contributors/" + project_id, userObj).then(function (response) {
+    $.post("/api/contributors/" + project_id, userObj).then(function(response) {
       console.log(response);
       $("#contributors").empty();
       printCollabs();
     });
   });
 
-  $("#logout").on("click", function () {
-    localStorage.removeItem("username")
-    localStorage.removeItem("project_id")
-    localStorage.removeItem("id")
+  $("#logout").on("click", function() {
+    localStorage.removeItem("username");
+    localStorage.removeItem("project_id");
+    localStorage.removeItem("id");
   })
 
 
@@ -285,19 +285,20 @@ var message = $("#messageFild").val();
 
 //send message click funct.
 $(document).on("click", "#sendMessage", function(event) {
-  var message = $("#messageFild").val()
+  var message = $("#messageFild").val();
   socket.emit("chat", {
     message: message
   });
 
-  $("#messageFild").val("")
+  $("#messageFild").val("");
 
 
 });
 //socket connect 'chat' and passes data & appends to chat chat box
-socket.on("chat", (data) =>{
-  $("#messageli").append("<li id='messageli' style='text-align: left'>" + data.message + "</li>")
-        console.log(data.message)
+socket.on("chat", (data) => {
+  $("#messageli").append("<li id='messageli' style='text-align: left'>" +
+    data.message + "</li>");
+  console.log(data.message);
 });
 
 
@@ -309,20 +310,20 @@ socket.on("chat", (data) =>{
 //=========---->>>>>dropdown user search <<<<<---==================
 function filterFunction() {
 
-  $("#foundusers").empty()
-  
+  $("#foundusers").empty();
+
   var usersSearch = $("#usersSearch").val();
-  $.get("/projectDash/" + usersSearch, (data) =>{
+  $.get("/projectDash/" + usersSearch, (data) => {
     for (var i = 0; i < data.length; i++) {
-      var id = data[i].username
-      $("#foundusers").append("<button id= " + id + " class='btn btn-success'>" + data[i].username)
-      $("#" + id).on("click", () =>{
-        $("#usersSearch").val("")
-        $("#foundusers").empty()
-        $("#contributors").append("<button class='btn btn-success'>" + this.id)
-      })
+      var id = data[i].username;
+      $("#foundusers").append("<button id= " +
+        id + " class='btn btn-success'>" + data[i].username);
+      $("#" + id).on("click", () => {
+        $("#usersSearch").val("");
+        $("#foundusers").empty();
+        $("#contributors").append("<button class='btn btn-success'>" +
+          this.id);
+      });
     }
-  })
-
-
+  });
 }
