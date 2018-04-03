@@ -85,7 +85,9 @@ $(document).ready(function() {
     localStorage.removeItem("username")
     localStorage.removeItem("project_id")
     localStorage.removeItem("id")
-    document.cookie = "";
-  })
+    document.cookie.remove({
+      name:"token"
+    });
+  });
 
 });

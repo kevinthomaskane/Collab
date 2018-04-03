@@ -3,11 +3,6 @@ $(document).ready(function () {
     var user = false;
     var pass = false;
 
-    if (localStorage.getItem("id")){
-        console.log("here")
-      window.location.href = "/home";
-    }
-
     $("#submitUser").on("click", () => {
         console.log("here");
         var userObject = {
