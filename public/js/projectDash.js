@@ -110,8 +110,8 @@ $(document).ready(function() {
           </li>
         `);
       }
+      writeEverything();
     });
-    writeEverything();
   });
 
   $(".add-doing").on("click", function(event) {
@@ -138,8 +138,8 @@ $(document).ready(function() {
           </li>
         `);
       }
+      writeEverything();
     });
-    writeEverything();
   });
 
   $(".add-done").on("click", function(event) {
@@ -166,8 +166,8 @@ $(document).ready(function() {
           </li>
         `);
       }
+      writeEverything();
     });
-    writeEverything();
   });
 
   $(document).on("click", ".need", function(event) {
