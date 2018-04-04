@@ -9,7 +9,7 @@ module.exports = function (app) {
         id: req.body.userId
       }}
     ).then(function () {
-      res.end();
+      res.redirect("/home");
     });
   });
 
