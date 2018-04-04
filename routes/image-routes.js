@@ -1,15 +1,15 @@
 db = require("../models");
 
 module.exports = function (app) {
-  app.post("/upload", function (req, res) {
-    console.log(req.files);
+  app.post("/api/upload", function (req, res) {
+    console.log(req);
     db.User.update(
-      {image: req.files.myUpload.data},
+      {image: req.files.uploadFile.data},
       {where: {
-        id: req.body.id
+        id: req.body.userId
       }}
     ).then(function () {
-      res.end();
+      res.redirect("/home");
     });
   });
 
