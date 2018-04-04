@@ -38,6 +38,7 @@ module.exports = function(app) {
         username: { like:req.params.search + '%'}
       }
     }).then(function(data){
+      console.log("this is data sent back from user search", data)
       res.json(data)
     })
   })

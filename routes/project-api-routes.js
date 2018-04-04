@@ -40,7 +40,7 @@ module.exports = function(app) {
       console.log(db.User.prototype);
       user.addProjects([req.params.project_id]);
       res.json(user);
-    });
+    })
   });
 
   app.delete("/api/userProjects/:id", function (req, res) {

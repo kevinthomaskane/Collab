@@ -300,25 +300,43 @@ socket.on("chat", (data) => {
 });
 
 //=========---->>>>>dropdown user search <<<<<---==================
+var names = [];
 function filterFunction() {
-
-  $("#foundusers").empty();
-
+  
   var usersSearch = $("#usersSearch").val();
-  $.get("/projectDash/" + usersSearch, (data) => {
-    for (var i = 0; i < data.length; i++) {
-      var id = data[i].username;
-      $("#foundusers").append("<button id= " +
-      id + " class='btn btn-success'>" +
-      data[i].username);
-      $("#" + id).on("click", () => {
-        $("#usersSearch").val("");
-        $("#foundusers").empty();
-        $("#contributors").append("<button class='btn btn-success'>" +
-        this.id);
-      });
-    }
-  });
-
-
+  if (usersSearch.length >= 1){
+    $.get("/projectDash/" + usersSearch).then(function(data){
+      $("#dropdown-content").empty();
+      for (var i = 0; i < data.length; i++) {
+        names.push(data[i].username);
+        console.log(names)
+        $("#dropdown-content").append("<option data-id='" +
+          data[i].id + "' value='" +
+          data[i].username + "'>")
+        }  
+    });
+  } 
 }
+
+
+$(document).on("change", "#usersSearch", function() {
+  var selection = $("#usersSearch").val().trim();
+  var object = {
+    name: $("#usersSearch").val().trim()
+  }
+  for (let i = 0; i < names.length; i++){
+    if (names[i] === selection){
+      $.post("/api/contributors/" + project_id, object).then(function(data){
+        console.log("post successful")
+        $("#contributors").empty();
+        //   $("#contributors").append("<button data-id='" + selection + "'class='btn btn-success'>" +
+        // selection + "</button>");
+        printCollabs();
+        });
+        $("#usersSearch").val("");
+        i = names.length-1;
+    }
+    
+  }
+   
+});

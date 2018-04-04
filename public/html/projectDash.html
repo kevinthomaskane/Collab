@@ -133,27 +133,14 @@
       <h3 id="ProjectNameSide">Your Team Members</h3>
       <p>Current contributors</p>
       <div id="contributors">
-
-
-
-
-
-
       </div>
-      <ul>Add collaborators to your project</ul>
-
-        <div id="dropchat">
-          <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <button id="addUser" class="btn btn-outline-secondary" type="button">@User</button>
-
-          <input id="usersSearch" type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" onkeyup="filterFunction()">
-          <ul id="dropdown-content">
-            <li id="foundusers"></li>
-          </ul>
-         </div>
-        </div>
-      </div>
+      <label>Add a collaborator:
+        <input id="usersSearch" list="dropdown-content" name="collabs" onkeyup="filterFunction()" />
+    </label>
+    <datalist id="dropdown-content" name="collabs">
+          <option value="random"></option>
+    </datalist>
+      
 
       <div id="chatArea">
         <ul id="chatList" style="text-align: center">Group Chat
