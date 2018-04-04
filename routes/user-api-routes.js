@@ -10,7 +10,7 @@ module.exports = function(app) {
         password: req.body.password
       }
     }).then(function(data) {
-      console.log("data" + data);
+      //console.log("data" + data);
       if (data) {
         console.log("here");
         res.cookie("token", req.body.token,{maxAge: 999999999});

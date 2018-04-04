@@ -43,10 +43,24 @@ db.sequelize.sync().then(function() {
   });
 // ============---->>>>  SOCKET.IO CODE ------->>>>>=========================================
   var io = socket(server);
-  io.on("connection", function(socket){
+  io.sockets.on("connection", function(socket){
     console.log("socket connection made ",socket.id)
-    socket.on("chat", function(data){
-      io.sockets.emit("chat", data)
+    socket.on("room", function(room){
+      console.log("room", room)
+      // io.sockets.emit("chat", data)
+      socket.join(room);
+
+      socket.on("message", function(data) {
+        io.sockets.in(room).emit('message', {message: data.message,username:data.username});
+
+      })
+          socket.on("typing",function(data){
+            io.sockets.in(room).emit("typing",{username:data.username})
     });
+      
+  })
   });
+
 });
+
+

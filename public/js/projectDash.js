@@ -279,9 +279,12 @@ $(document).ready(function() {
 
 });
 
-//socket connect
+//------------>>>>>> MY CODE<<<<-----------------------
+//================================================================
+                //socket connect
 var socket = io.connect("http://localhost:8080");
-var message = $("#messageFild").val();
+var message = $("#messageFild").val()
+var room = project_id;
 
 //send message click funct.
 $(document).on("click", "#sendMessage", function(event) {
@@ -298,6 +301,50 @@ socket.on("chat", (data) => {
     data.message + "</li>");
   console.log(data.message);
 });
+
+ 
+  var message = $("#messageFild").val()
+  console.log(message)
+  socket.emit("message",  {message: message, username: username});
+  
+  
+    $('#newplace').empty();
+ 
+  $("#messageFild").val("")
+  
+ 
+$("#sendMessage").on("click",function(){
+
+  socket.emit("typing",  {username: username});
+})
+
+
+//connectiong to chat room
+socket.on('connect', function() {
+  socket.emit('room', room);
+});
+
+
+$(document).on('input',"#messageFild",function(){
+  socket.emit("typing",{username:username})
+})
+
+
+socket.on("typing",function(data){
+  $("#newplace").append("<p id='new'></p>")
+  $("#new").html( "<p id='typer' ><b>" + data.username+"</b>"+": is typing" +  "</p>")
+ 
+})
+
+
+socket.on("message", (data) =>{
+  if(data.message !== ""){
+     $("#messageli").append("<p><b>"+ data.username +"</b>" + ": " + data.message+"</p>")
+  }
+});
+
+
+
 
 //=========---->>>>>dropdown user search <<<<<---==================
 var names = [];
