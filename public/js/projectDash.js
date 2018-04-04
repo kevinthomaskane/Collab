@@ -279,29 +279,53 @@ $(document).ready(function () {
 
 //------------>>>>>> MY CODE<<<<-----------------------
 //================================================================
-//socket connect
+                //socket connect
 var socket = io.connect("http://localhost:8080");
-var message = $("#messageFild").val();
+var message = $("#messageFild").val()
+var room = project_id;
 
 //send message click funct.
 $(document).on("click", "#sendMessage", function(event) {
+ 
   var message = $("#messageFild").val()
-  socket.emit("chat", {
-    message: message
-  });
-
+  console.log(message)
+  socket.emit("message",  {message: message, username: username});
+  
+  
+    $('#newplace').empty();
+ 
   $("#messageFild").val("")
-
-
+  
 });
-//socket connect 'chat' and passes data & appends to chat chat box
-socket.on("chat", (data) =>{
-  $("#messageli").append("<li id='messageli' style='text-align: left'>" + data.message + "</li>")
-        console.log(data.message)
+$("#sendMessage").on("click",function(){
+
+  socket.emit("typing",  {username: username});
+})
+
+
+//connectiong to chat room
+socket.on('connect', function() {
+  socket.emit('room', room);
 });
 
 
+$(document).on('input',"#messageFild",function(){
+  socket.emit("typing",{username:username})
+})
 
+
+socket.on("typing",function(data){
+  $("#newplace").append("<p id='new'></p>")
+  $("#new").html( "<p id='typer' ><b>" + data.username+"</b>"+": is typing" +  "</p>")
+ 
+})
+
+
+socket.on("message", (data) =>{
+  if(data.message !== ""){
+     $("#messageli").append("<p><b>"+ data.username +"</b>" + ": " + data.message+"</p>")
+  }
+});
 
 
 

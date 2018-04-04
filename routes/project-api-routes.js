@@ -2,7 +2,7 @@ var db = require("../models");
 
 module.exports = function(app) {
   app.post("/api/userProjects", function(req, res) {
-    console.log(req.body);
+    //console.log(req.body);
     db.User.findOne({
       where:{
         id: req.body.userId
@@ -37,7 +37,7 @@ module.exports = function(app) {
         name: req.body.name
       }
     }).then(function (user) {
-      console.log(db.User.prototype);
+     // console.log(db.User.prototype);
       user.addProjects([req.params.project_id]);
       res.json(user);
     });
@@ -54,7 +54,7 @@ module.exports = function(app) {
   });
 
   app.get("/api/contributors/:project_id", function (req, res) {
-    console.log(db.Project.prototype);
+    //console.log(db.Project.prototype);
     db.Project.findOne({
       where:{
         id: req.params.project_id
