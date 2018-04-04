@@ -3,8 +3,8 @@
 .header{
     background-color: black;
     height: 100px;
-    width: 110%;
  }
+
  
  #logo{
     color: white;
@@ -16,6 +16,10 @@
     text-decoration: none;
 }
 
+.modal input{
+    margin-bottom: 20px;
+}
+
  .nav-link{
     color: white;
     font-family: 'Open Sans', sans-serif;
@@ -23,6 +27,7 @@
     line-height: 80px;
     vertical-align: bottom;
     text-align: right;
+    text-decoration: none;
 }
 
  .nav-link:hover{
@@ -32,6 +37,10 @@
     line-height: 80px;
     vertical-align: bottom;
     text-align: right;
+}
+
+.nav-link:focus{
+    outline: 0;
 }
 
 .badge{
@@ -54,6 +63,7 @@
 
 #bodytext h1{
     padding-top:75px ;
+    font-style: italic;
 }
 
 img{
