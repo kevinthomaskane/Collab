@@ -8,10 +8,10 @@ module.exports = function (sequelize, DataTypes) {
   Doing.associate = function(models) {
     models.Doing.belongsTo(models.Project, {
       foreignKey: {
-        onDelete: "CASCADE",
         name: 'project_id',
         allowNull: false
-      }
+      },
+      onDelete: "CASCADE"
     });
   };
 

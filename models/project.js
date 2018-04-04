@@ -14,10 +14,9 @@ module.exports = function(sequelize, DataTypes) {
     });
     models.Project.hasMany(models.ToDo, {
       foreignKey: {
-        onDelete: "CASCADE",
         name: 'project_id',
         allowNull: false
-      }
+      },
     });
     models.Project.hasMany(models.Doing, {
       foreignKey: {

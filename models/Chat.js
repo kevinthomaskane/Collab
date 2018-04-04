@@ -12,10 +12,10 @@ module.exports = function (sequelize, DataTypes) {
   Chat.associate = function (models) {
     models.Chat.belongsTo(models.Project, {
       foreignKey: {
-        onDelete: "CASCADE",
         name: "project_id",
         allowNull: false
-      }
+      },
+      onDelete: "CASCADE"
     });
   };
 
