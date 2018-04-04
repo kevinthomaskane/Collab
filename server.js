@@ -40,7 +40,7 @@ require("./routes/html-routes.js")(app);
 require("./routes/chat-api-routes.js")(app);
 require("./routes/image-routes.js")(app);
 
-db.sequelize.sync({force:true}).then(function() {
+db.sequelize.sync().then(function() {
   var server = app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
     require("./socket.js")(server);

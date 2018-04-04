@@ -5,6 +5,14 @@ var userId = localStorage.getItem("id");
 var deleteProject = false;
 var project_id;
 
+function getPic(){
+  $.get("/api/images/"+ userId).then(function(data){
+    $("#imageLink").empty();
+  //   var html = '<img src="data:'+data.image.type+';base64,'+data.image.data.toString("base64")+'" />';
+    $("#imageLink").html(data);
+  });
+}
+
 console.log(document.cookie);
 
 if(!!window.performance && window.performance.navigation.type === 2)
@@ -16,7 +24,7 @@ if(!!window.performance && window.performance.navigation.type === 2)
 $(document).ready(function() {
 
   $("#hiddenInput").attr("value", userId.toString())
- 
+
 
   var object = {
     username: userName,
@@ -93,13 +101,6 @@ $(document).ready(function() {
     document.cookie = "token=; expires= Thu, 01 Jan 1970 00:00:00 UTC;";
   });
 
-
-  function getPic(){
-    $.get("/api/images").then(function(data){
-      console.log(data)
-      $("#profilePic").attr("src", "data:${results[i].type};base64,${results[i].src.toString('base64')}")
-    })
-  }
 
   $("#imageLink").on("click", function(event){
     event.preventDefault();

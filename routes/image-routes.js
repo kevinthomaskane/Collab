@@ -13,6 +13,19 @@ module.exports = function (app) {
     });
   });
 
+  app.get("/api/images/:id", function (req, res) {
+    db.User.findOne({
+      where:{
+        id: req.params.id
+      }
+    }).then(function (data) {
+      console.log(data);
+      var html =
+      `<img height=100px src="data:${data.image.type};base64,${data.image.toString("base64")}" />`;
+      res.send(html);
+    });
+  });
+
   app.get("/test", function(req, res) {
   // send html form with encoding type attr
   res.send(`
