@@ -93,7 +93,7 @@ $(document).ready(function() {
       content: text,
       project_id: project_id
     }
-    if(text.length>=1){
+    if (text.length >= 1){
       $(".need-item").val('');
       $.post("/api/todos", todo).then((data) => {
         for (let i = 0; i < data.length; i++) {
@@ -114,7 +114,6 @@ $(document).ready(function() {
         writeEverything();
       });
     }
-   
   });
 
   $(".add-doing").on("click", function(event) {
