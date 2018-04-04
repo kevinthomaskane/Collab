@@ -15,6 +15,10 @@ module.exports = function(sequelize, DataTypes) {
     },
     token: {
       type: DataTypes.STRING
+    },
+    image: {
+      type: DataTypes.BLOB('long'),
+      allowNull: true
     }
   });
 
