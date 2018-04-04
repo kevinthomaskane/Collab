@@ -23,6 +23,7 @@ $(document).ready(function() {
     userId: userId.toString()
   }
   writeProjects();
+  getPic();
 
   function writeProjects() {
     $.post("/api/userProjects", object).then(function (data) {
@@ -95,7 +96,8 @@ $(document).ready(function() {
 
   function getPic(){
     $.get("/api/images").then(function(data){
-      $("#profilePic").attr("src", data)
+      console.log(data)
+      $("#profilePic").attr("src", "data:${results[i].type};base64,${results[i].src.toString('base64')}")
     })
   }
 
