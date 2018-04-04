@@ -39,28 +39,10 @@ require("./routes/html-routes.js")(app);
 db.sequelize.sync().then(function() {
   var server = app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
+    require("./socket.js")(server);
 
   });
 // ============---->>>>  SOCKET.IO CODE ------->>>>>=========================================
-  var io = socket(server);
-  io.sockets.on("connection", function(socket){
-    console.log("socket connection made ",socket.id)
-    socket.on("room", function(room){
-      console.log("room", room)
-      // io.sockets.emit("chat", data)
-      socket.join(room);
 
-      socket.on("message", function(data) {
-        io.sockets.in(room).emit('message', {message: data.message,username:data.username});
-
-      })
-          socket.on("typing",function(data){
-            io.sockets.in(room).emit("typing",{username:data.username})
-    });
-      
-  })
-  });
 
 });
-
-

@@ -284,16 +284,15 @@ var room = project_id;
 
 //send message click funct.
 $(document).on("click", "#sendMessage", function(event) {
- 
-  var message = $("#messageFild").val()
-  console.log(message)
-  socket.emit("message",  {message: message, username: username});
-  
-  
-    $('#newplace').empty();
- 
-  $("#messageFild").val("")
-  
+
+  var message = $("#messageFild").val();
+  console.log(message);
+  socket.emit("message",  {message: message,
+    username: username,
+    project_id:project_id});
+  $('#newplace').empty();
+  $("#messageFild").val("");
+
 });
 $("#sendMessage").on("click",function(){
 
@@ -315,7 +314,7 @@ $(document).on('input',"#messageFild",function(){
 socket.on("typing",function(data){
   $("#newplace").append("<p id='new'></p>")
   $("#new").html( "<p id='typer' ><b>" + data.username+"</b>"+": is typing" +  "</p>")
- 
+
 })
 
 
@@ -330,7 +329,7 @@ socket.on("message", (data) =>{
 //=========---->>>>>dropdown user search <<<<<---==================
 var names = [];
 function filterFunction() {
-  
+
   var usersSearch = $("#usersSearch").val();
   if (usersSearch.length >= 1){
     $.get("/projectDash/" + usersSearch).then(function(data){
@@ -341,9 +340,9 @@ function filterFunction() {
         $("#dropdown-content").append("<option data-id='" +
           data[i].id + "' value='" +
           data[i].username + "'>")
-        }  
+        }
     });
-  } 
+  }
 }
 
 
@@ -362,7 +361,7 @@ $(document).on("change", "#usersSearch", function() {
         $("#usersSearch").val("");
         i = names.length-1;
     }
-    
+
   }
-   
+
 });
