@@ -341,8 +341,15 @@ socket.on("typing",function(data){
 
 
 socket.on("message", (data) =>{
-  $("#chatList").empty();
-  printChats();
+  if (data.username === username){
+    $("#chatList").append(`
+  <li style="text-align: left;"><span style="font-weight: bold">You:</span> ${data.message}</li>
+  `)
+  } else{
+    $("#chatList").append(`
+    <li style="text-align: left;"><span style="font-weight: bold">${data.username}:</span>  ${data.message}</li>
+    `)
+  }
 });
 
 
