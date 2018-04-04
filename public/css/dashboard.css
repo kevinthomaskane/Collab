@@ -9,6 +9,7 @@
     position: relative;
     display: inline-block;
     border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(66, 66, 66, 0.2), 0 6px 20px 0 rgba(58, 57, 57, 0.05);
 }
 
 .projectButton:hover{
@@ -67,20 +68,48 @@
 }
 
 #projectName{
-    font-size: 150%;
+    font-size: 250%;
     font-weight: bold;
-    padding: 20px 0 0 0;
+    margin-top: 25px;
+    padding-top: 5px;
+    line-height: 50px;
+    vertical-align: bottom;
+    display: inline-block;
     
 }
 
+
 #projectTiles{
     margin-bottom: 50px;
-    margin-top: 30px;
+    margin-top: 50px;
     overflow-x: scroll;
     overflow-x: hidden;
     height: 300px;
     width: 100%;
+    
 }
 
+#addProj{
+    
+    box-shadow: 0 4px 8px 0 rgba(66, 66, 66, 0.2), 0 6px 20px 0 rgba(58, 57, 57, 0.05);
+}
+
+#peopleLogo{
+    height: 70px;
+    width: 70px;
+}
+
+#footer h1{
+    padding-top: 20px;
+}
+
+#footer{
+    background-color: black;
+    margin-top: 100px;
+    font-family: 'Lobster', cursive;
+    text-align: center;
+    color: white;
+    height: 130px;
+}
 
 
