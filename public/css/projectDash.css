@@ -23,6 +23,16 @@
     vertical-align: middle;
     text-align: center;
 }
+#home{
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+    font-size: 100%;
+    line-height: 100px;
+    vertical-align: middle;
+    text-align: center;
+}
+
 
 *{
     font-family: 'Open Sans', sans-serif;
@@ -159,3 +169,7 @@ textarea{
     resize: none;
 }
 
+#new {
+     
+    font-size: 17px;
+}
