@@ -33,6 +33,14 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
       }
     });
+
+    models.Project.hasMany(models.Chat, {
+      foreignKey: {
+        onDelete: "CASCADE",
+        name: "project_id",
+        allowNull: false
+      }
+    });
   };
 
   return Project;
