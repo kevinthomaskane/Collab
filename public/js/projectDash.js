@@ -84,7 +84,6 @@ function writeEverything() {
 
 function printChats(){
   $.get("/api/chats/" + project_id).then(function(data){
-    console.log(data)
     for (let i = 0; i < data.length; i++){
       if (data[i].username === username){
         $("#chatList").append(`
@@ -343,6 +342,7 @@ socket.on("typing",function(data){
 
 socket.on("message", (data) =>{
   $("#chatList").empty();
+  $("#newplace").text('');
   printChats();
 });
 
