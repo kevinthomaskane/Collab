@@ -6,7 +6,7 @@ module.exports = function (app) {
     db.User.update(
       {image: req.files.myUpload.data},
       {where: {
-        id: "1"
+        id: req.body.id
       }}
     ).then(function () {
       res.end();
