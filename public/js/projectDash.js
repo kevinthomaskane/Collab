@@ -93,25 +93,28 @@ $(document).ready(function() {
       content: text,
       project_id: project_id
     }
-    $(".need-item").val('');
-    $.post("/api/todos", todo).then((data) => {
-      for (let i = 0; i < data.length; i++) {
-        $("#need").prepend(`
-          <li>
-           <button data-id="${data[i].id}" type="button"
-           class="btn btn-primary">${data[i].content}
-            <a href="" data-id="${data[i].id}" class="need">
-             <i class="far fa-check-circle"></i>
-            </a>
-            <a href="" data-id="${data[i].id}" class="todos delete">
-             <i class="far fa-times-circle"></i>
-            </a>
-           </button>
-          </li>
-        `);
-      }
-      writeEverything();
-    });
+    if(text.length>=1){
+      $(".need-item").val('');
+      $.post("/api/todos", todo).then((data) => {
+        for (let i = 0; i < data.length; i++) {
+          $("#need").prepend(`
+            <li>
+             <button data-id="${data[i].id}" type="button"
+             class="btn btn-primary">${data[i].content}
+              <a href="" data-id="${data[i].id}" class="need">
+               <i class="far fa-check-circle"></i>
+              </a>
+              <a href="" data-id="${data[i].id}" class="todos delete">
+               <i class="far fa-times-circle"></i>
+              </a>
+             </button>
+            </li>
+          `);
+        }
+        writeEverything();
+      });
+    }
+   
   });
 
   $(".add-doing").on("click", function(event) {
@@ -121,25 +124,28 @@ $(document).ready(function() {
       content: text,
       project_id: project_id
     }
-    $(".doing-item").val('');
-    $.post("/api/doings", todo).then((data) => {
-      for (let i = 0; i < data.length; i++) {
-        $("#doing").prepend(`
-          <li>
-           <button data-id="${data[i].id}" type="button"
-           class="btn btn-success">${data[i].content}
-            <a href="" data-id="${data[i].id}" class="need">
-             <i class="far fa-check-circle"></i>
-            </a>
-            <a href="" data-id="${data[i].id}" class="todos delete">
-             <i class="far fa-times-circle"></i>
-            </a>
-           </button>
-          </li>
-        `);
-      }
-      writeEverything();
-    });
+    if(text.length>=1){
+      $(".doing-item").val('');
+      $.post("/api/doings", todo).then((data) => {
+        for (let i = 0; i < data.length; i++) {
+          $("#doing").prepend(`
+            <li>
+             <button data-id="${data[i].id}" type="button"
+             class="btn btn-success">${data[i].content}
+              <a href="" data-id="${data[i].id}" class="need">
+               <i class="far fa-check-circle"></i>
+              </a>
+              <a href="" data-id="${data[i].id}" class="todos delete">
+               <i class="far fa-times-circle"></i>
+              </a>
+             </button>
+            </li>
+          `);
+        }
+        writeEverything();
+      });
+    }
+
   });
 
   $(".add-done").on("click", function(event) {
@@ -149,25 +155,28 @@ $(document).ready(function() {
       content: text,
       project_id: project_id
     }
-    $(".done-item").val('');
-    $.post("/api/dones", todo).then((data) => {
-      for (let i = 0; i < data.length; i++) {
-        $("#done").prepend(`
-          <li>
-           <button data-id="${data[i].id}" type="button"
-           class="btn btn-dark">${data[i].content}
-            <a href="" data-id="${data[i].id}" class="need">
-             <i class="far fa-check-circle"></i>
-            </a>
-            <a href="" data-id="${data[i].id}" class="todos delete">
-             <i class="far fa-times-circle"></i>
-            </a>
-           </button>
-          </li>
-        `);
-      }
-      writeEverything();
-    });
+    if(text.length>=1){
+      $(".done-item").val('');
+      $.post("/api/dones", todo).then((data) => {
+        for (let i = 0; i < data.length; i++) {
+          $("#done").prepend(`
+            <li>
+             <button data-id="${data[i].id}" type="button"
+             class="btn btn-dark">${data[i].content}
+              <a href="" data-id="${data[i].id}" class="need">
+               <i class="far fa-check-circle"></i>
+              </a>
+              <a href="" data-id="${data[i].id}" class="todos delete">
+               <i class="far fa-times-circle"></i>
+              </a>
+             </button>
+            </li>
+          `);
+        }
+        writeEverything();
+      });
+    }
+  
   });
 
   $(document).on("click", ".need", function(event) {
