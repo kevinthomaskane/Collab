@@ -84,12 +84,11 @@ function writeEverything() {
 
 function printChats(){
   $.get("/api/chats/" + project_id).then(function(data){
-    
+    console.log(data)
     for (let i = 0; i < data.length; i++){
       if (data[i].username === username){
-        data[i].username = "You";
         $("#chatList").append(`
-      <li style="text-align: left;"><span style="font-weight: bold">${data[i].username}:</span> ${data[i].content}</li>
+      <li style="text-align: left;"><span style="font-weight: bold">You:</span> ${data[i].content}</li>
       `)
       } else{
         $("#chatList").append(`
