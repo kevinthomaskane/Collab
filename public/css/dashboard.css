@@ -112,4 +112,11 @@
     height: 130px;
 }
 
+#profilePic{
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    margin-top: 25px;
+}
+
 
