@@ -337,7 +337,6 @@ $(document).on('input',"#messageField",function(){
 
 socket.on("typing",function(data){
   $("#newplace").html( "<p id='typer' ><b>" + data.username+"</b>"+": is typing" +  "</p>")
-
 })
 
 
