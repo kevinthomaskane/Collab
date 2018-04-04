@@ -98,4 +98,8 @@ $(document).ready(function() {
       $("#profilePic").attr("src", data)
     })
   }
+
+  $("#imageLink").on("click", function(event){
+    event.preventDefault();
+  })
 });
