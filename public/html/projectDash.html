@@ -6,36 +6,36 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Collab</title>
   <link rel="icon" type="image/png" href="images/c.png">
-<script>"https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.0/socket.io.dev.js"</script>
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" href="../css/projectDash.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet">
+  <script>
+    "https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.0/socket.io.dev.js"
+  </script>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/projectDash.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1"
+    crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-<!-- Jquery -->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script src="/socket.io/socket.io.js"></script>
-<!-- Bootstrap JS -->
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+  <!-- Jquery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <!-- Bootstrap JS -->
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="../js/projectDash.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="../js/projectDash.js"></script>
 </head>
 <style>
- 
+  #new {
+    font-family: Comic Sans MS, cursive;
+    font-size: 17px;
 
-   #new{
-     font-family: Comic Sans MS, cursive;
-     font-size: 17px;
-     
-   }
-
-
-
-
-
+  }
 </style>
+
 <body>
 
   <div class="row header">
@@ -44,7 +44,9 @@
       <a id="logo" href="/home">Collab</a>
     </div>
     <div class="col-md-3"></div>
-    <div class="col-md-2"><a id="logout" href="/">Log Out</a></div>
+    <div class="col-md-2">
+      <a id="logout" href="/">Log Out</a>
+    </div>
 
   </div>
 
@@ -111,38 +113,31 @@
       </div>
       <label>Add a collaborator:
         <input id="usersSearch" list="dropdown-content" name="collabs" onkeyup="filterFunction()" />
-    </label>
-    <datalist id="dropdown-content" name="collabs">
-    </datalist>
+      </label>
+      <datalist id="dropdown-content" name="collabs">
+      </datalist>
 
 
-      <div id="chatArea">
-        <ul id="chatList" style="text-align: center">Group Chat
-            
-            <li id="messageli" style="text-align: left"></li>
-            <li id="newplace" style="text-align: left"></li>
-             
-                 
-            
-
-
-        </ul>
-    </div>
-    <div class="input-group mb-3">
+      <div id="chatArea" style="text-align: center; padding: 5px;"><span style="font-weight: bold; ">Group Chat</span>
+          <div id="newplace" style="text-align: left"></div>
+          <ul id="chatList" >
+          </ul>
+      </div>
+      <div class="input-group mb-3">
         <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <button id="sendMessage" class="btn btn-outline-secondary" type="button">
-                    <i class="fas fa-location-arrow"></i>
-                </button>
-            </div>
-            <input id="messageFild" type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+          <div class="input-group-prepend">
+            <button id="sendMessage" class="btn btn-outline-secondary" type="button">
+              <i class="fas fa-location-arrow"></i>
+            </button>
+          </div>
+          <input id="messageField" type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
         </div>
 
 
+      </div>
     </div>
-</div>
 
-</div>
+  </div>
 
 
 
