@@ -35,6 +35,7 @@ require("./routes/user-api-routes.js")(app);
 require("./routes/task-api-routes.js")(app);
 require("./routes/project-api-routes.js")(app);
 require("./routes/html-routes.js")(app);
+require("./routes/chat-api-routes.js")(app);
 
 db.sequelize.sync({force:true}).then(function() {
   var server = app.listen(PORT, function() {

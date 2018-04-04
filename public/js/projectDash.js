@@ -81,10 +81,29 @@ function writeEverything() {
   });
 }
 
+
+function printChats(){
+  $.get("/api/chats/" + project_id).then(function(data){
+    console.log(data)
+    for (let i = 0; i < data.length; i++){
+      if (data[i].username === username){
+        $("#chatList").append(`
+      <li style="text-align: left;"><span style="font-weight: bold">You:</span> ${data[i].content}</li>
+      `)
+      } else{
+        $("#chatList").append(`
+        <li style="text-align: left;"><span style="font-weight: bold">${data[i].username}:</span>  ${data[i].content}</li>
+        `)
+      }
+    }
+  })
+}
+
 $(document).ready(function() {
 
   writeEverything();
   printCollabs();
+  printChats()
 
   $(".add-need").on("click", function(event) {
     event.preventDefault();
@@ -289,50 +308,42 @@ $(document).ready(function() {
 
 var currentURL= document.location.host;
 var socket = io.connect(currentURL);
-var message = $("#messageFild").val()
+var message = $("#messageField").val()
 var room = project_id;
 
 //send message click funct.
 $(document).on("click", "#sendMessage", function(event) {
 
-  var message = $("#messageFild").val();
+  var message = $("#messageField").val();
   console.log(message);
   socket.emit("message",  {message: message,
     username: username,
     project_id:project_id});
   $('#newplace').empty();
-  $("#messageFild").val("");
+  $("#messageField").val("");
+  socket.emit("typing",  {username: username});
 
 });
-$("#sendMessage").on("click",function(){
 
-  socket.emit("typing",  {username: username});
-})
-
-
-//connectiong to chat room
 socket.on('connect', function() {
   socket.emit('room', room);
 });
 
 
-$(document).on('input',"#messageFild",function(){
+$(document).on('input',"#messageField",function(){
   socket.emit("typing",{username:username})
 })
 
 
 socket.on("typing",function(data){
-  $("#newplace").append("<p id='new'></p>")
-  $("#new").html( "<p id='typer' ><b>" + data.username+"</b>"+": is typing" +  "</p>")
+  $("#newplace").html( "<p id='typer' ><b>" + data.username+"</b>"+": is typing" +  "</p>")
 
 })
 
 
 socket.on("message", (data) =>{
-  $('#newplace').empty();
-  if(data.message !== ""){
-     $("#messageli").append("<p><b>"+ data.username +"</b>" + ": " + data.message+"</p>")
-  }
+  $("#chatList").empty();
+  printChats();
 });
 
 
