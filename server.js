@@ -55,7 +55,7 @@ db.sequelize.sync().then(function() {
 
       })
           socket.on("typing",function(data){
-            io.sockets.in(room).emit("typing",{username:data.username})
+            socket.broadcast.in(room).emit("typing",{username:data.username})
     });
       
   })

@@ -278,7 +278,9 @@ $(document).ready(function() {
 
 
 });
-var socket = io.connect("http://localhost:8080");
+
+var currentURL= document.location.host;
+var socket = io.connect(currentURL);
 var message = $("#messageFild").val()
 var room = project_id;
 
@@ -290,7 +292,7 @@ $(document).on("click", "#sendMessage", function(event) {
   socket.emit("message",  {message: message, username: username});
   
   
-    $('#newplace').empty();
+  
  
   $("#messageFild").val("")
   
@@ -320,6 +322,7 @@ socket.on("typing",function(data){
 
 
 socket.on("message", (data) =>{
+  $('#newplace').empty();
   if(data.message !== ""){
      $("#messageli").append("<p><b>"+ data.username +"</b>" + ": " + data.message+"</p>")
   }
