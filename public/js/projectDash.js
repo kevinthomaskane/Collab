@@ -342,7 +342,7 @@ socket.on("typing",function(data){
 
 socket.on("message", (data) =>{
   $("#chatList").empty();
-  $("#newplace").text('');
+  $("#newplace").html('');
   printChats();
 });
 
