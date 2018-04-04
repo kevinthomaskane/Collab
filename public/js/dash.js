@@ -1,6 +1,7 @@
 var userName = localStorage.getItem("username");
 var userId = localStorage.getItem("id");
 
+
 var deleteProject = false;
 var project_id;
 
@@ -13,6 +14,9 @@ if(!!window.performance && window.performance.navigation.type === 2)
 }
 
 $(document).ready(function() {
+
+  $("#hiddenInput").attr("value", userId.toString())
+ 
 
   var object = {
     username: userName,
@@ -88,4 +92,14 @@ $(document).ready(function() {
     document.cookie = "token=; expires= Thu, 01 Jan 1970 00:00:00 UTC;";
   });
 
+
+  function getPic(){
+    $.get("/api/images").then(function(data){
+      $("#profilePic").attr("src", data)
+    })
+  }
+
+  $("#imageLink").on("click", function(event){
+    event.preventDefault();
+  })
 });

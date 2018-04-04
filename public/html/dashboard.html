@@ -7,15 +7,19 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Collab</title>
   <link rel="icon" type="image/png" href="images/c.png">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
 
   <link rel="stylesheet" href="../css/dashboard.css">
   <link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet">
 
   <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1"
+    crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
   <script type="text/javascript" src="../js/dash.js"></script>
 </head>
 
@@ -30,7 +34,8 @@
           </button>
         </div>
         <div class="modal-body">
-          What is the name of your project? <input id="inputProject" type="text">
+          What is the name of your project?
+          <input id="inputProject" type="text">
         </div>
         <div class="modal-footer">
           <button type="button" id="modalSubmit" class="btn btn-primary">Save Project</button>
@@ -45,7 +50,7 @@
         <div class="modal-header">
           <h5 class="modal-title">Are you sure you want to delete?</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-           <span aria-hidden="true">&times;</span>
+            <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-footer">
@@ -56,13 +61,34 @@
     </div>
   </div>
 
+  <div id="imageModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Are you sure you want to delete?</h5>
+          <form ref='uploadForm' id='uploadForm' action='/upload' method='post' encType="multipart/form-data">
+            <input type="file" name="uploadFile" />
+            <input type='submit' value='Upload!' />
+            <input id="hiddenInput" type="hidden" value="foo" name="userId">
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="uploadPic" class="btn btn-primary" data-dismiss="modal">Upload</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="row header">
     <div class="col-md-5"></div>
     <div class="col-md-2">
       <a id="logo" href="/home">Collab</a>
     </div>
-    <div class="col-md-3"></div>
-    <div class="col-md-2"><a id="logout" href="/">Log Out</a></div>
+    <div class="col-md-2"></div>
+    <div class="col-md-1"><a id="imageLink" href=""><img id="profilePic" data-toggle="modal" data-target="#imageModal" src="https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png"></a></div>
+    <div class="col-md-2">
+      <a id="logout" href="/">Log Out</a>
+    </div>
 
   </div>
 
@@ -70,7 +96,8 @@
 
     <div class="row">
       <div class="col-md-6">
-          <img id="peopleLogo" src="images/c.png"> <h3 id="projectName"> Your Projects</h3>
+        <img id="peopleLogo" src="images/c.png">
+        <h3 id="projectName"> Your Projects</h3>
       </div>
       <div class="col-md-6">
       </div>
@@ -90,14 +117,14 @@
     </div>
   </div>
   <div class="row">
-      <div class="col-md-12" id="footer">
-          <h1>Connect with us</h1>
-          <a href="https://github.com/bijansemnani" target="_blank" class="badge badge-secondary">Bijan</a>
-          <a href="https://github.com/kevinthomaskane" target="_blank" class="badge badge-secondary">Kevin</a>
-          <a href="https://github.com/edo92" target="_blank" class="badge badge-secondary">Eduard</a>
-          <a href="https://github.com/guswilliams1" target="_blank" class="badge badge-secondary">Gus</a>
-      </div>
-</div>
+    <div class="col-md-12" id="footer">
+      <h1>Connect with us</h1>
+      <a href="https://github.com/bijansemnani" target="_blank" class="badge badge-secondary">Bijan</a>
+      <a href="https://github.com/kevinthomaskane" target="_blank" class="badge badge-secondary">Kevin</a>
+      <a href="https://github.com/edo92" target="_blank" class="badge badge-secondary">Eduard</a>
+      <a href="https://github.com/guswilliams1" target="_blank" class="badge badge-secondary">Gus</a>
+    </div>
+  </div>
 
 
 </body>
