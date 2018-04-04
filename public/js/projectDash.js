@@ -17,7 +17,7 @@ function printCollabs() {
         $("#contributors").append(`
           <button data-user=${data.Users[i].id}
           type="button" class="btn btn-success">
-          ${data.Users[i].name}</button>
+          ${data.Users[i].username}</button>
           `);
       }
     }
