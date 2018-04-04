@@ -38,6 +38,7 @@ body{
     left: 75%;
     bottom: 0;
     background-color: #f0f0f5;
+    height: 100vh;
 }
 
 li{
