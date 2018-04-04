@@ -17,7 +17,7 @@ function printCollabs() {
         $("#contributors").append(`
           <button data-user=${data.Users[i].id}
           type="button" class="btn btn-success">
-          ${data.Users[i].name}</button>
+          ${data.Users[i].username}</button>
           `);
       }
     }
@@ -93,25 +93,27 @@ $(document).ready(function() {
       content: text,
       project_id: project_id
     }
-    $(".need-item").val('');
-    $.post("/api/todos", todo).then((data) => {
-      for (let i = 0; i < data.length; i++) {
-        $("#need").prepend(`
-          <li>
-           <button data-id="${data[i].id}" type="button"
-           class="btn btn-primary">${data[i].content}
-            <a href="" data-id="${data[i].id}" class="need">
-             <i class="far fa-check-circle"></i>
-            </a>
-            <a href="" data-id="${data[i].id}" class="todos delete">
-             <i class="far fa-times-circle"></i>
-            </a>
-           </button>
-          </li>
-        `);
-      }
-      writeEverything();
-    });
+    if (text.length >= 1){
+      $(".need-item").val('');
+      $.post("/api/todos", todo).then((data) => {
+        for (let i = 0; i < data.length; i++) {
+          $("#need").prepend(`
+            <li>
+             <button data-id="${data[i].id}" type="button"
+             class="btn btn-primary">${data[i].content}
+              <a href="" data-id="${data[i].id}" class="need">
+               <i class="far fa-check-circle"></i>
+              </a>
+              <a href="" data-id="${data[i].id}" class="todos delete">
+               <i class="far fa-times-circle"></i>
+              </a>
+             </button>
+            </li>
+          `);
+        }
+        writeEverything();
+      });
+    }
   });
 
   $(".add-doing").on("click", function(event) {
@@ -121,25 +123,28 @@ $(document).ready(function() {
       content: text,
       project_id: project_id
     }
-    $(".doing-item").val('');
-    $.post("/api/doings", todo).then((data) => {
-      for (let i = 0; i < data.length; i++) {
-        $("#doing").prepend(`
-          <li>
-           <button data-id="${data[i].id}" type="button"
-           class="btn btn-success">${data[i].content}
-            <a href="" data-id="${data[i].id}" class="need">
-             <i class="far fa-check-circle"></i>
-            </a>
-            <a href="" data-id="${data[i].id}" class="todos delete">
-             <i class="far fa-times-circle"></i>
-            </a>
-           </button>
-          </li>
-        `);
-      }
-      writeEverything();
-    });
+    if(text.length>=1){
+      $(".doing-item").val('');
+      $.post("/api/doings", todo).then((data) => {
+        for (let i = 0; i < data.length; i++) {
+          $("#doing").prepend(`
+            <li>
+             <button data-id="${data[i].id}" type="button"
+             class="btn btn-success">${data[i].content}
+              <a href="" data-id="${data[i].id}" class="need">
+               <i class="far fa-check-circle"></i>
+              </a>
+              <a href="" data-id="${data[i].id}" class="todos delete">
+               <i class="far fa-times-circle"></i>
+              </a>
+             </button>
+            </li>
+          `);
+        }
+        writeEverything();
+      });
+    }
+
   });
 
   $(".add-done").on("click", function(event) {
@@ -149,25 +154,28 @@ $(document).ready(function() {
       content: text,
       project_id: project_id
     }
-    $(".done-item").val('');
-    $.post("/api/dones", todo).then((data) => {
-      for (let i = 0; i < data.length; i++) {
-        $("#done").prepend(`
-          <li>
-           <button data-id="${data[i].id}" type="button"
-           class="btn btn-dark">${data[i].content}
-            <a href="" data-id="${data[i].id}" class="need">
-             <i class="far fa-check-circle"></i>
-            </a>
-            <a href="" data-id="${data[i].id}" class="todos delete">
-             <i class="far fa-times-circle"></i>
-            </a>
-           </button>
-          </li>
-        `);
-      }
-      writeEverything();
-    });
+    if(text.length>=1){
+      $(".done-item").val('');
+      $.post("/api/dones", todo).then((data) => {
+        for (let i = 0; i < data.length; i++) {
+          $("#done").prepend(`
+            <li>
+             <button data-id="${data[i].id}" type="button"
+             class="btn btn-dark">${data[i].content}
+              <a href="" data-id="${data[i].id}" class="need">
+               <i class="far fa-check-circle"></i>
+              </a>
+              <a href="" data-id="${data[i].id}" class="todos delete">
+               <i class="far fa-times-circle"></i>
+              </a>
+             </button>
+            </li>
+          `);
+        }
+        writeEverything();
+      });
+    }
+  
   });
 
   $(document).on("click", ".need", function(event) {
@@ -286,16 +294,15 @@ var room = project_id;
 
 //send message click funct.
 $(document).on("click", "#sendMessage", function(event) {
- 
-  var message = $("#messageFild").val()
-  console.log(message)
-  socket.emit("message",  {message: message, username: username});
-  
-  
-  
- 
-  $("#messageFild").val("")
-  
+
+  var message = $("#messageFild").val();
+  console.log(message);
+  socket.emit("message",  {message: message,
+    username: username,
+    project_id:project_id});
+  $('#newplace').empty();
+  $("#messageFild").val("");
+
 });
 $("#sendMessage").on("click",function(){
 
@@ -317,7 +324,7 @@ $(document).on('input',"#messageFild",function(){
 socket.on("typing",function(data){
   $("#newplace").append("<p id='new'></p>")
   $("#new").html( "<p id='typer' ><b>" + data.username+"</b>"+": is typing" +  "</p>")
- 
+
 })
 
 
@@ -333,7 +340,7 @@ socket.on("message", (data) =>{
 //=========---->>>>>dropdown user search <<<<<---==================
 var names = [];
 function filterFunction() {
-  
+
   var usersSearch = $("#usersSearch").val();
   if (usersSearch.length >= 1){
     $.get("/projectDash/" + usersSearch).then(function(data){
@@ -344,9 +351,9 @@ function filterFunction() {
         $("#dropdown-content").append("<option data-id='" +
           data[i].id + "' value='" +
           data[i].username + "'>")
-        }  
+        }
     });
-  } 
+  }
 }
 
 
@@ -365,7 +372,7 @@ $(document).on("change", "#usersSearch", function() {
         $("#usersSearch").val("");
         i = names.length-1;
     }
-    
+
   }
-   
+
 });

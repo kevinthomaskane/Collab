@@ -34,7 +34,7 @@ module.exports = function(app) {
   app.post("/api/contributors/:project_id", function (req, res) {
     db.User.findOne({
       where: {
-        name: req.body.name
+        username: req.body.name
       }
     }).then(function (user) {
      // console.log(db.User.prototype);
