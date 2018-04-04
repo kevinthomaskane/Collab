@@ -81,10 +81,21 @@ function writeEverything() {
   });
 }
 
+function printChats(){
+  $.get("/api/chats" + project_id).then(function(data){
+    for (let i = 0; i < data.length; i++){
+      $("#chatList").append(`
+      <li>${data[i].message}</li>
+      `)
+    }
+  })
+}
+
 $(document).ready(function() {
 
   writeEverything();
   printCollabs();
+  printChats();
 
   $(".add-need").on("click", function(event) {
     event.preventDefault();

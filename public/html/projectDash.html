@@ -22,48 +22,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="../js/projectDash.js"></script>
 </head>
-<style>
-
-  #dropchat:hover   #dropdown-content{
-
-    position: absolute;
-    display: inline-block;
-    background-color:none;
-    border: 1px solid white;
-    min-width: 200px;
-    max-width: 200px;
-    min-height: 0px;
-    height: auto;
-    margin-top: 50px;
-  }
-
-   #dropchat  #dropdown-content{
-      display:none;
-
-   }
-
-   #dropchat {
-     display: inline-block;
-     text-align: center;
-     vertical-align: middle;
-
-
-   }
-
-   #foundusers  {
-     margin-top:15px;
-     margin-bottom:15px;
-   }
-
-   #dropchat ul:empty{
-     border: none;
-   }
-
- 
-
-  
-   
-</style>
 <body>
 
   <div class="row header">
@@ -144,9 +102,10 @@
     </datalist>
       
 
-      <div id="chatArea">
-        <ul id="chatList" style="text-align: center">Group Chat
-            <li id="newplace" style="text-align: left"></li>
+      <div id="chatArea" style="text-align: center">Group Chat
+        <div id="newplace" style="text-align: left"></div>
+        <ul id="chatList" >
+            <!-- <li id="newplace" style="text-align: left"></li> -->
             <li id="messageli" style="text-align: left"></li>
              
                  
