@@ -278,30 +278,12 @@ $(document).ready(function() {
 
 
 });
-
-//------------>>>>>> MY CODE<<<<-----------------------
-//================================================================
-                //socket connect
 var socket = io.connect("http://localhost:8080");
 var message = $("#messageFild").val()
 var room = project_id;
 
 //send message click funct.
 $(document).on("click", "#sendMessage", function(event) {
-  var message = $("#messageFild").val();
-  socket.emit("chat", {
-    message: message
-  });
-
-  $("#messageFild").val("");
-});
-//socket connect 'chat' and passes data & appends to chat chat box
-socket.on("chat", (data) => {
-  $("#messageli").append("<li id='messageli' style='text-align: left'>" +
-    data.message + "</li>");
-  console.log(data.message);
-});
-
  
   var message = $("#messageFild").val()
   console.log(message)
@@ -312,7 +294,7 @@ socket.on("chat", (data) => {
  
   $("#messageFild").val("")
   
- 
+});
 $("#sendMessage").on("click",function(){
 
   socket.emit("typing",  {username: username});
@@ -342,7 +324,6 @@ socket.on("message", (data) =>{
      $("#messageli").append("<p><b>"+ data.username +"</b>" + ": " + data.message+"</p>")
   }
 });
-
 
 
 
