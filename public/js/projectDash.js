@@ -329,8 +329,6 @@ $(document).on("change", "#usersSearch", function() {
       $.post("/api/contributors/" + project_id, object).then(function(data){
         console.log("post successful")
         $("#contributors").empty();
-        //   $("#contributors").append("<button data-id='" + selection + "'class='btn btn-success'>" +
-        // selection + "</button>");
         printCollabs();
         });
         $("#usersSearch").val("");
