@@ -319,10 +319,10 @@ $(document).on("click", "#sendMessage", function(event) {
   socket.emit("message",  {message: message,
     username: username,
     project_id:project_id});
-  $('#newplace').empty();
+  $('#newplace').html('');
   $("#messageField").val("");
-  socket.emit("typing",  {username: username});
-
+  // socket.emit("typing",  {username: username});
+  
 });
 
 socket.on('connect', function() {
