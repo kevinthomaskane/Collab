@@ -43,7 +43,7 @@ $(document).ready(function() {
     $.post("/api/login/", userObj).then(function(data) {
       console.log(data);
       localStorage.setItem("username", userObj.username);
-      localStorage.setItem("id", data);
+      localStorage.setItem("id", data.id);
       window.location.href = "/home";
     });
   });
