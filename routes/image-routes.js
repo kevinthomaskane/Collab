@@ -21,7 +21,7 @@ module.exports = function (app) {
     }).then(function (data) {
       console.log(data);
       var html =
-      `<img height=100px src="data:${data.image.type};base64,${data.image.toString("base64")}" />`;
+      `<img id="profilePic" data-toggle="modal" data-target="#imageModal" src="data:${data.image.type};base64,${data.image.toString("base64")}" />`;
       res.send(html);
     });
   });

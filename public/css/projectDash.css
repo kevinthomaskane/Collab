@@ -117,7 +117,7 @@ input{
 
 #chatArea{
     height: 300px;
-    border: solid 1px black;
+    border: solid 1px rgb(182, 180, 180);
     margin: 10px 0 10px 0;
     background-color: white;
     overflow: auto;
@@ -173,3 +173,22 @@ textarea{
 #typer{
     font-size: 14px;
 }
+
+#profilePic{
+    height: 60px;
+    width: 60px;
+    background-color: white;
+    margin-top: 20px;
+    border-radius: 3px;
+    box-shadow: 0 4px 8px 0 rgba(66, 66, 66, 0.2), 0 6px 20px 0 rgba(58, 57, 57, 0.05);
+}
+
+#profilePic:hover{
+    -webkit-filter: brightness(70%);
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    transition: all .5s ease;
+}
+
