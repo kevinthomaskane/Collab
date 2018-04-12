@@ -8,7 +8,7 @@ tells you what's being worked on, what needs to get done, and the status of all 
 
  <p>Imagine a virtual whiteboard that keeps track of the status of all of your project's action items.  Never again would your project fall behind. That's Collab! Add items to a project throughout your workflow
 process and keep your teammates updated!</p>
-<img src="images/todos.gif" width="350"/>
+<img src="public/images/todos.gif" width="350"/>
         
 
     
