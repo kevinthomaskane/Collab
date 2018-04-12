@@ -10,11 +10,16 @@ module.exports = function(app) {
         password: req.body.password
       }
     }).then(function(data) {
-      //console.log("data" + data);
       if (data) {
         console.log("here");
         res.cookie("token", req.body.token,{maxAge: 999999999});
-        res.send(data);
+        db.User.findOne({
+          where:{
+            username: req.body.username
+          }
+        }).then(function (data) {
+          res.json(data);
+        });
       } else {
         res.end();
       }

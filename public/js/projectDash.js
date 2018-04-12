@@ -1,5 +1,8 @@
 var project_id = localStorage.getItem("project_id");
 var username = localStorage.getItem("username");
+var userId = localStorage.getItem("id");
+
+$("#hiddenInput").attr("value", userId.toString())
 
 function printCollabs() {
   $.get("/api/contributors/" + project_id).then(function(data) {
@@ -99,11 +102,21 @@ function printChats(){
   })
 }
 
+function getPic(){
+  $.get("/api/images/"+ userId).then(function(data){
+    $("#imageLink").empty();
+  //   var html = '<img src="data:'+data.image.type+';base64,'+data.image.data.toString("base64")+'" />';
+    $("#imageLink").html(data);
+  });
+}
+
 $(document).ready(function() {
+
 
   writeEverything();
   printCollabs();
-  printChats()
+  printChats();
+  getPic();
 
   $(".add-need").on("click", function(event) {
     event.preventDefault();
@@ -302,7 +315,9 @@ $(document).ready(function() {
     document.cookie = "token=; expires= Thu, 01 Jan 1970 00:00:00 UTC;";
   })
 
-
+  $("#imageLink").on("click", function(event){
+    event.preventDefault();
+  })
 
 });
 
