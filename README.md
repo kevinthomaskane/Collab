@@ -16,4 +16,6 @@ process and keep your teammates updated!</p>
  <p class="about">Communicate with your teammates with our built-in chat feature. Never miss an update or fall behind. No need
  for long email chains, just use Collab!</p>  
  <img src="public/images/chat.gif" width="350"/> 
+ 
+ [view the deployed application here](https://collab-proj.herokuapp.com/)
             
