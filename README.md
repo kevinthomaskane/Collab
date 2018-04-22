@@ -1,5 +1,9 @@
 # Collab
 
+[View the deployed application here](https://collab-proj.herokuapp.com/)
+
+<p>Create your own account or login with our test credentials(username: test, password: test)</p>
+
 <p>Collab is a collaboration tool that helps organize your projects. In one glance, Collab
 tells you what's being worked on, what needs to get done, and the status of all your projects' action items. On your customized dashboard, view all projects that you are apart of or create new projects for collaboration.
 </p>
@@ -17,5 +21,5 @@ process and keep your teammates updated!</p>
  for long email chains, just use Collab!</p>  
  <img src="public/images/chat.gif" width="350"/> 
  
- [view the deployed application here](https://collab-proj.herokuapp.com/)
+ 
             
