@@ -40,8 +40,8 @@ $(document).ready(function() {
       for (let i = 0; i < data.Projects.length; i++) {
         $("#projectTiles").append(`
           <div class="projectButton">
-          <a href="" data-id="${data.Projects[i].id}"
-          class="projText">${data.Projects[i].name}</a>
+          <p data-id="${data.Projects[i].id}"
+          class="projText">${data.Projects[i].name}</p>
           <a href="" data-toggle="modal" data-target="#deleteModal"
           data-id="${data.Projects[i].id}" class="delete"><i
           class="fas fa-times-circle"></i></a></div>`);
@@ -72,8 +72,10 @@ $(document).ready(function() {
     var object = {
       id: id
     }
+    console.log("here");
     localStorage.setItem("project_id", id);
     $.post("/api/currProject", object).then(function (data) {
+      console.log(window.location.href);
       window.location.href = "/projectDash"
     });
   });

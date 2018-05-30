@@ -25,7 +25,7 @@
     z-index: 5;
 }
 
-.projectButton a{
+.projectButton p{
     font-size: 35px;
     color: white;
     text-decoration: none;
@@ -34,7 +34,7 @@
     display: block;
     white-space: nowrap;
     text-overflow: ellipsis;
-    overflow: hidden;   
+    overflow: hidden;
 }
 
 .header{
@@ -75,7 +75,7 @@
     line-height: 50px;
     vertical-align: bottom;
     display: inline-block;
-    
+
 }
 
 
@@ -86,11 +86,11 @@
     overflow-x: hidden;
     height: 300px;
     width: 100%;
-    
+
 }
 
 #addProj{
-    
+
     box-shadow: 0 4px 8px 0 rgba(66, 66, 66, 0.2), 0 6px 20px 0 rgba(58, 57, 57, 0.05);
 }
 
@@ -110,6 +110,7 @@
     text-align: center;
     color: white;
     height: 130px;
+    width: 100vw;
 }
 
 #profilePic{
@@ -129,5 +130,3 @@
     -ms-transition: all .5s ease;
     transition: all .5s ease;
 }
-
-
